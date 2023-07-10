@@ -13,7 +13,7 @@ public class DecisionTree {
 
         // Hauteur 2
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
-        DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client (PC, VDI, MAC, Mobile, IOT...)"); // à modifier
+        DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client (PC, VDI, MAC, Mobile, IOT...)");
         DecisionTreeNode nodePrinter = new DecisionTreeNode("Imprimante");
         DecisionTreeNode nodeScanner = new DecisionTreeNode("Scanneur médical");
 
@@ -82,7 +82,6 @@ public class DecisionTree {
         nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte);
         nodeNon.addChild("Non", nodeNon); // noeud "Non"
 
-        // ajouter
         DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
         DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante");
@@ -90,11 +89,15 @@ public class DecisionTree {
         DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
 
         // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre
-        // DecisionTreeNode nodeDSI = new DecisionTreeNode("Maitrisée par la DSI APHM");
-        // Continuer selon noeuds
+        // modifier les choix après "Environnement"
 
     }
 
+    /**
+     * Méthode pour implémenter la décision d'un noeud par l'utilisateur
+     * TODO : à modifier et personnaliser le choix de l'utilisateur
+     *
+     */
     public void decide() {
         Scanner scanner = new Scanner(System.in);
         DecisionTreeNode currentNode = root;
@@ -105,12 +108,12 @@ public class DecisionTree {
             currentNode = currentNode.getChild(choice);
 
             if (currentNode == null) {
-                System.out.println("Choix non valide. Veuillez recommencer.");
+                System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, recommencer la sélection
                 currentNode = root;
             }
         }
 
-        System.out.println("Noeud final atteint : " + currentNode.getMessage());
+        System.out.println("Noeud final atteint : " + currentNode.getMessage()); // noeud final obtenu et affiché
     }
 
     public DecisionTreeNode getRoot() {
