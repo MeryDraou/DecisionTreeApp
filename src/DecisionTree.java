@@ -83,7 +83,7 @@ public class DecisionTree {
         nodeNon.addChild("Non", nodeNon); // noeud "Non"
 
         // ajouter
-        DecisionTreeNode nodeCriticite = new DecisionTreeNode("Criticite (PASSI)");
+        DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
         DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante");
         DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique");
@@ -92,6 +92,7 @@ public class DecisionTree {
         // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre
         // DecisionTreeNode nodeDSI = new DecisionTreeNode("Maitrisée par la DSI APHM");
         // Continuer selon noeuds
+
     }
 
     public void decide() {
