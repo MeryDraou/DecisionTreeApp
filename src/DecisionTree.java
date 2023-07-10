@@ -14,8 +14,8 @@ public class DecisionTree {
         // Hauteur 2
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
         DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client (PC, VDI, MAC, Mobile, IOT...)");
-        DecisionTreeNode nodePrinter = new DecisionTreeNode("Imprimante");
-        DecisionTreeNode nodeScanner = new DecisionTreeNode("Scanneur médical");
+        DecisionTreeNode nodePrinter = new DecisionTreeNode("I : Imprimante");
+        DecisionTreeNode nodeScanner = new DecisionTreeNode("M : Scanneur médical");
 
         // Hauteur 3
         DecisionTreeNode nodeExposition = new DecisionTreeNode("Exposition");
@@ -82,11 +82,21 @@ public class DecisionTree {
         nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte);
         nodeNon.addChild("Non", nodeNon); // noeud "Non"
 
-        DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
+       // DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
         DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante");
         DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique");
         DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
+
+        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE");
+        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
+        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
+        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
+
+        nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible);
+        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique);
+        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
+        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
 
         // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre
         // modifier les choix après "Environnement"

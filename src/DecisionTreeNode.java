@@ -5,7 +5,7 @@ import java.util.HashMap;
  */
 public class DecisionTreeNode {
     private String message;
-    private HashMap<String, DecisionTreeNode> children; // hashmap utilisée à modifier potentiellement
+    private HashMap<String, DecisionTreeNode> children; // hashmap utilisée à modifier potentiellement avec linked list
 
     public DecisionTreeNode(String message) {
         this.message = message;
