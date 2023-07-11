@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
 /**
- * Deciison Tree Class
+ * Classe de l'arbre de décision
  */
 public class DecisionTree {
     DecisionTreeNode root;
-
     public DecisionTree() {
         // Hauteur 1
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
@@ -32,7 +31,6 @@ public class DecisionTree {
         DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement");
 
         // Hauteur 6
-        // Link the nodes together
         root = nodeApplicationEquipment;
         root.addChild("Serveur", nodeServer);
         root.addChild("Terminal", nodeTerminal);
@@ -51,7 +49,7 @@ public class DecisionTree {
         nodeE.addChild("Environnement1", nodeEnvironnement1);
         nodeR.addChild("Environnement2", nodeEnvironnement2);
 
-        // suite
+        // Ajout
         DecisionTreeNode nodeIntegration = new DecisionTreeNode("Integration");
         DecisionTreeNode nodeDeveloppement = new DecisionTreeNode("Development");
         DecisionTreeNode nodeProduction = new DecisionTreeNode("Production");
@@ -59,8 +57,7 @@ public class DecisionTree {
         DecisionTreeNode nodeFormation = new DecisionTreeNode("Formation");
         DecisionTreeNode nodeTest = new DecisionTreeNode("Test");
 
-
-        // suite
+        // Ajout
         nodeEnvironnement1.addChild("Integration", nodeIntegration);
         nodeDeveloppement.addChild("Developpement", nodeDeveloppement);
         nodeProduction.addChild("Production", nodeProduction);
@@ -68,8 +65,8 @@ public class DecisionTree {
         nodeFormation.addChild("Formation", nodeFormation);
         nodeTest.addChild("Test", nodeTest);
 
-        // suite 2
-        // Continuer à ajouter les noeuds à partir de la hauteur 6 de l'abre
+        // Ajout
+        // Continuer à ajouter les noeuds à partir de la hauteur 6 de l'arbre
         DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE");
         DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV");
         DecisionTreeNode nodeHDS = new DecisionTreeNode("HDS");
@@ -79,7 +76,7 @@ public class DecisionTree {
         nodeSIE.addChild("SIE", nodeSIE);
         nodeSIIV.addChild("SIIV", nodeSIIV);
         nodeHDS.addChild("HDS", nodeHDS);
-        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte);
+        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // noeud "Diffusion Restreinte"
         nodeNon.addChild("Non", nodeNon); // noeud "Non"
 
        // DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
@@ -88,25 +85,23 @@ public class DecisionTree {
         DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique");
         DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
 
-        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE");
-        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
-        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
-        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
+        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE"); // Noeud final
+        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR"); // Noeud final
+        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE"); // Noeud final
+        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE"); // Noeud final
 
-        nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible);
-        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique);
-        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
-        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
+        nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // Noeud final
+        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique); // Noeud final
+        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante); // Noeud final
+        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale); // Noeud final
 
-        // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre
-        // modifier les choix après "Environnement"
+        // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre et modifier les choix après "Environnement"
 
     }
 
     /**
      * Méthode pour implémenter la décision d'un noeud par l'utilisateur
      * TODO : à modifier et personnaliser le choix de l'utilisateur
-     *
      */
     public void decide() {
         Scanner scanner = new Scanner(System.in);
@@ -116,18 +111,16 @@ public class DecisionTree {
             System.out.println(currentNode.getMessage());
             String choice = scanner.nextLine();
             currentNode = currentNode.getChild(choice);
-
             if (currentNode == null) {
-                System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, recommencer la sélection
+                System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, sélectionné un nouveau noeud
                 currentNode = root;
             }
         }
-
-        System.out.println("Noeud final atteint : " + currentNode.getMessage()); // noeud final obtenu et affiché
+        System.out.println("Noeud final atteint : " + currentNode.getMessage()); // noeud final obtenu et atteint
     }
 
     public DecisionTreeNode getRoot() {
-        return this.root;
+        return this.root; // obtenir la racine de l'arbre
     }
 
 }

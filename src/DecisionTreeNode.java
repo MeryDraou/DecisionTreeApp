@@ -47,7 +47,7 @@ public class DecisionTreeNode {
     }
 
     /**
-     * Pour obtenir l'enfant du noeud associé
+     * Pour obtenir le noeud associé de l'arbre de décision
      * @return
      */
     public HashMap<String, DecisionTreeNode> getChildren() {
