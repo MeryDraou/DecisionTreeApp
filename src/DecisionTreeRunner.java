@@ -10,7 +10,7 @@ public class DecisionTreeRunner {
 
     public void run() {
         // Créer une nouvelle fenêtre
-        JFrame frame = new JFrame("Decision Tree");
+        JFrame frame = new JFrame("Arbre De Décision APHM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Ajouter un menu déroulant à rétirer éventuellement
@@ -28,7 +28,7 @@ public class DecisionTreeRunner {
         frame.add(logo, BorderLayout.NORTH);
 
         frame.pack();
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Tailel de la fenêtre : Plein écran
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Taille de la fenêtre : Plein écran
 
 
         frame.setVisible(true); // Afficher la fenêtre
@@ -49,7 +49,7 @@ public class DecisionTreeRunner {
             currentNode = currentNode.getChild(userInput);
 
             if (currentNode == null) {
-                JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez réessayer."); // Si choix non pertinent
+                JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez réessayer."); // Si choix invalide, choix à nouveau posssible
                 currentNode = tree.getRoot();  // restart from the beginning
             }
         }
