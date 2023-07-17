@@ -108,7 +108,7 @@ public class DecisionTree {
         DecisionTreeNode currentNode = root;
 
         while (!currentNode.isLeaf()) {
-            System.out.println(currentNode.getMessage());
+            System.out.println(currentNode.getInput());
             String choice = scanner.nextLine();
             currentNode = currentNode.getChild(choice);
             if (currentNode == null) {
@@ -116,7 +116,7 @@ public class DecisionTree {
                 currentNode = root;
             }
         }
-        System.out.println("Noeud final atteint : " + currentNode.getMessage()); // noeud final obtenu et atteint
+        System.out.println("Noeud final atteint : " + currentNode.getInput()); // noeud final obtenu et atteint
     }
 
     public DecisionTreeNode getRoot() {

@@ -9,15 +9,15 @@ public class DecisionTreeRunner {
     }
 
     public void run() {
-        // Créer une nouvelle fenêtre
-        JFrame frame = new JFrame("Arbre De Décision APHM");
+        // Créer la fenêtre
+        JFrame frame = new JFrame("Arbre de décision APHM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Ajouter un menu déroulant à retirer éventuellement
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Fichiers");
-        JMenuItem option1 = new JMenuItem("Ouvrir PDF");
-        JMenuItem option2 = new JMenuItem("Générer Word");
+        JMenuItem option1 = new JMenuItem("Ouvrir PDF"); // Ouvrir PDF, implémenter l'évènement associé
+        JMenuItem option2 = new JMenuItem("Générer Word"); // Générer Word, implémenter l'évènement associé
         menu.add(option1);
         menu.add(option2);
         menuBar.add(menu);
@@ -28,16 +28,16 @@ public class DecisionTreeRunner {
         frame.add(logo, BorderLayout.NORTH);
 
         frame.pack();
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Taille de la fenêtre plein écran
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Taille de la fenêtre en plein écran
 
         frame.setVisible(true); // Afficher la fenêtre
 
         DecisionTreeNode currentNode = tree.getRoot();
-        // Pour afficher la boîte de dialogue selon le noeud courant
+        // Pour aafficher la boîte de dialogue selon le noeud courant
         while (!currentNode.isLeaf()) {
             String userInput = (String) JOptionPane.showInputDialog(
                     frame,
-                    currentNode.getMessage(),
+                    currentNode.getInput(),
                     "Arbre de décision APHM",
                     JOptionPane.QUESTION_MESSAGE,
                     null,
@@ -52,7 +52,7 @@ public class DecisionTreeRunner {
                 currentNode = tree.getRoot(); // Recommencer depuis le début
             }
         }
-        JOptionPane.showMessageDialog(frame, "Le nœud final atteint est: " + currentNode.getMessage()); // Le noeud final est affiché
+        JOptionPane.showMessageDialog(frame, "Le noeud final atteint est : " + currentNode.getInput()); // Le noeud final est affiché
     }
 
     public static void main(String[] args) {

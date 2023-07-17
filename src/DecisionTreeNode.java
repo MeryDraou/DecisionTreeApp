@@ -4,7 +4,7 @@ import java.util.HashMap;
  * Noeuds de l'arbre de décision
  */
 public class DecisionTreeNode {
-    private String message;
+    private String input;
     private HashMap<String, DecisionTreeNode> children; // hashmap utilisée à modifier potentiellement avec linked list
 
     /**
@@ -12,16 +12,16 @@ public class DecisionTreeNode {
      * @param message
      */
     public DecisionTreeNode(String message) {
-        this.message = message;
+        this.input = message;
         this.children = new HashMap<>();
     }
 
     /**
      * Pour obtenir le résultat du noeud choisis
-     * @return
+     * @return message retourné
      */
-    public String getMessage() {
-        return this.message;
+    public String getInput() {
+        return this.input;
     }
 
     /**
@@ -30,7 +30,7 @@ public class DecisionTreeNode {
      * @return
      */
     public DecisionTreeNode getChild(String decision) {
-        return this.children.get(decision);
+        return this.children.get(decision); // Récupérer noeud fils
     }
 
     /**
@@ -47,7 +47,7 @@ public class DecisionTreeNode {
      * @return
      */
     public boolean isLeaf() {
-        return this.children.isEmpty();
+        return this.children.isEmpty(); // si le noeud fils est vide
     }
 
     /**
