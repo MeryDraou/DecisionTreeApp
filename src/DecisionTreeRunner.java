@@ -13,7 +13,7 @@ public class DecisionTreeRunner {
         JFrame frame = new JFrame("Arbre De Décision APHM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Ajouter un menu déroulant à rétirer éventuellement
+        // Ajouter un menu déroulant à retirer éventuellement
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Fichiers");
         JMenuItem option1 = new JMenuItem("Ouvrir PDF");
@@ -23,13 +23,12 @@ public class DecisionTreeRunner {
         menuBar.add(menu);
         frame.setJMenuBar(menuBar);
 
-        // TODO : Ajouter le logo OCD
+        // TODO : Ajouter le logo OCD au sein de l'interface
         JLabel logo = new JLabel(new ImageIcon("ocd.png"));  // logo.png se trouve dans le bon répertoire
         frame.add(logo, BorderLayout.NORTH);
 
         frame.pack();
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Taille de la fenêtre : Plein écran
-
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Taille de la fenêtre plein écran
 
         frame.setVisible(true); // Afficher la fenêtre
 
@@ -39,7 +38,7 @@ public class DecisionTreeRunner {
             String userInput = (String) JOptionPane.showInputDialog(
                     frame,
                     currentNode.getMessage(),
-                    "Arbre De Décision APHM",
+                    "Arbre de décision APHM",
                     JOptionPane.QUESTION_MESSAGE,
                     null,
                     currentNode.getChildren().keySet().toArray(),
@@ -49,15 +48,15 @@ public class DecisionTreeRunner {
             currentNode = currentNode.getChild(userInput);
 
             if (currentNode == null) {
-                JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez réessayer."); // Si choix invalide, choix à nouveau posssible
-                currentNode = tree.getRoot();  // restart from the beginning
+                JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez réessayer."); // Si choix invalide, choix à nouveau possible
+                currentNode = tree.getRoot(); // Recommencer depuis le début
             }
         }
-
         JOptionPane.showMessageDialog(frame, "Le nœud final atteint est: " + currentNode.getMessage()); // Le noeud final est affiché
     }
 
     public static void main(String[] args) {
         new DecisionTreeRunner().run();
     }
+
 }

@@ -7,6 +7,10 @@ public class DecisionTreeNode {
     private String message;
     private HashMap<String, DecisionTreeNode> children; // hashmap utilisée à modifier potentiellement avec linked list
 
+    /**
+     * Constructeur
+     * @param message
+     */
     public DecisionTreeNode(String message) {
         this.message = message;
         this.children = new HashMap<>();
