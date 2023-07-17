@@ -48,7 +48,7 @@ public class DecisionTreeRunner {
             currentNode = currentNode.getChild(userInput);
 
             if (currentNode == null) {
-                JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez réessayer."); // Si choix invalide, choix à nouveau possible
+                JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez essayer à nouveau."); // Si choix invalide, choix à nouveau possible
                 currentNode = tree.getRoot(); // Recommencer depuis le début
             }
         }
