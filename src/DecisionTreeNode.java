@@ -1,5 +1,4 @@
 import java.util.HashMap;
-
 /**
  * Noeuds de l'arbre de décision
  */
@@ -21,7 +20,7 @@ public class DecisionTreeNode {
      * @return message retourné
      */
     public String getInput() {
-        return this.input;
+        return this.input; // Récupérer noeud choisis
     }
 
     /**
@@ -47,7 +46,7 @@ public class DecisionTreeNode {
      * @return
      */
     public boolean isLeaf() {
-        return this.children.isEmpty(); // si le noeud fils est vide
+        return this.children.isEmpty(); // si le noeud est vide
     }
 
     /**

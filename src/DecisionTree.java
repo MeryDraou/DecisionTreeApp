@@ -17,39 +17,38 @@ public class DecisionTree {
         DecisionTreeNode nodeScanner = new DecisionTreeNode("M : Scanneur médical");
 
         // Hauteur 3
-        DecisionTreeNode nodeExposition = new DecisionTreeNode("Exposition");
-        DecisionTreeNode nodeReseau = new DecisionTreeNode("Réseau");
-        DecisionTreeNode nodeZIImprim = new DecisionTreeNode("Z_I_IMPRIM");
-        DecisionTreeNode nodeZMScanMedic = new DecisionTreeNode("Z_M_SCAN_MEDIC");
+        DecisionTreeNode nodeExposition = new DecisionTreeNode("Exposition"); // Exposition
+        DecisionTreeNode nodeReseau = new DecisionTreeNode("Réseau"); // Réseau
+        DecisionTreeNode nodeZIImprim = new DecisionTreeNode("Z_I_IMPRIM"); // Z_I_IMPRIM
+        DecisionTreeNode nodeZMScanMedic = new DecisionTreeNode("Z_M_SCAN_MEDIC"); // Z_M_SCAN_MEDIC
 
         // Hauteur 4
-        DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne, GHT, Publique Large, Publique Restreint");
-        DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE");
+        DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne, GHT, Publique Large, Publique Restreint"); // E : Interne, GHT, Publique Large, Public Restreint
+        DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE"); // R : WIFI ou FILAIRE
 
         // Hauteur 5
-        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement");
-        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement");
+        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement"); // Environnement
+        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement"); // Environnement
 
         // Hauteur 6
         root = nodeApplicationEquipment;
-        root.addChild("Serveur", nodeServer);
-        root.addChild("Terminal", nodeTerminal);
-        root.addChild("Imprimante", nodePrinter);
-        root.addChild("Scanneur", nodeScanner);
+        root.addChild("Serveur", nodeServer); // Serveur
+        root.addChild("Terminal", nodeTerminal); // Terminal
+        root.addChild("Imprimante", nodePrinter); // Imprimante
+        root.addChild("Scanneur", nodeScanner); // Scanneur
 
 
-        nodeServer.addChild("Exposition", nodeExposition);
-        nodeTerminal.addChild("Réseau", nodeReseau);
-        nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim);
-        nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic);
+        nodeServer.addChild("Exposition", nodeExposition); // Exposition
+        nodeTerminal.addChild("Réseau", nodeReseau); // Réseau
+        nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // Z_I_IMPRIM
+        nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_I_SCAN_MEDIC
 
-        nodeExposition.addChild("E", nodeE);
-        nodeReseau.addChild("R", nodeR);
+        nodeExposition.addChild("E", nodeE); // E
+        nodeReseau.addChild("R", nodeR); // R
 
-        nodeE.addChild("Environnement1", nodeEnvironnement1);
-        nodeR.addChild("Environnement2", nodeEnvironnement2);
+        nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1
+        nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2
 
-        // Ajout
         DecisionTreeNode nodeIntegration = new DecisionTreeNode("Integration");
         DecisionTreeNode nodeDeveloppement = new DecisionTreeNode("Development");
         DecisionTreeNode nodeProduction = new DecisionTreeNode("Production");
@@ -57,7 +56,7 @@ public class DecisionTree {
         DecisionTreeNode nodeFormation = new DecisionTreeNode("Formation");
         DecisionTreeNode nodeTest = new DecisionTreeNode("Test");
 
-        // Ajout
+        // Ajout précédent à ne pas modifier
         nodeEnvironnement1.addChild("Integration", nodeIntegration);
         nodeDeveloppement.addChild("Developpement", nodeDeveloppement);
         nodeProduction.addChild("Production", nodeProduction);
@@ -65,7 +64,7 @@ public class DecisionTree {
         nodeFormation.addChild("Formation", nodeFormation);
         nodeTest.addChild("Test", nodeTest);
 
-        // Ajout
+        // Ajout précédent à ne pas modifier
         // Continuer à ajouter les noeuds à partir de la hauteur 6 de l'arbre
         DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE");
         DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV");
@@ -76,8 +75,8 @@ public class DecisionTree {
         nodeSIE.addChild("SIE", nodeSIE);
         nodeSIIV.addChild("SIIV", nodeSIIV);
         nodeHDS.addChild("HDS", nodeHDS);
-        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // noeud "Diffusion Restreinte"
-        nodeNon.addChild("Non", nodeNon); // noeud "Non"
+        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Noeud "Diffusion Restreinte"
+        nodeNon.addChild("Non", nodeNon); // Noeud "non"
 
        // DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
@@ -116,11 +115,11 @@ public class DecisionTree {
                 currentNode = root;
             }
         }
-        System.out.println("Noeud final atteint : " + currentNode.getInput()); // noeud final obtenu et atteint
+        System.out.println("Noeud final atteint : " + currentNode.getInput()); // Noeud final obtenu et atteint
     }
 
     public DecisionTreeNode getRoot() {
-        return this.root; // obtenir la racine de l'arbre
+        return this.root;  // obtenir la racine de l'arbre
     }
 
 }
