@@ -38,7 +38,7 @@ public class DecisionTreeRunner {
             String userInput = (String) JOptionPane.showInputDialog(
                     frame,
                     currentNode.getInput(),
-                    "Arbre de décision APHM",
+                    "Arbre De Décision APHM",
                     JOptionPane.QUESTION_MESSAGE,
                     null,
                     currentNode.getChildren().keySet().toArray(),
@@ -52,7 +52,7 @@ public class DecisionTreeRunner {
                 currentNode = tree.getRoot(); // Recommencer depuis le début
             }
         }
-        JOptionPane.showMessageDialog(frame, "Le noeud final atteint est : " + currentNode.getInput()); // Le noeud final est affiché
+        JOptionPane.showMessageDialog(frame, "Le noeud final atteint est : " + currentNode.getInput()); // Le noeud est affiché
     }
 
     public static void main(String[] args) {
