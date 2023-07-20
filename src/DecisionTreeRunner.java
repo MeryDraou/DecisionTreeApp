@@ -9,11 +9,11 @@ public class DecisionTreeRunner {
     }
 
     public void run() {
-        // Créer la fenêtre
+        // Créer une entreprise
         JFrame frame = new JFrame("Arbre de décision APHM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Ajouter un menu déroulant à retirer éventuellement
+        // Ajouter un menu déroulant à retirer évenetuellement
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Fichiers");
         JMenuItem option1 = new JMenuItem("Ouvrir PDF"); // Ouvrir PDF, implémenter l'évènement associé
@@ -52,7 +52,7 @@ public class DecisionTreeRunner {
                 currentNode = tree.getRoot(); // Recommencer depuis le début
             }
         }
-        JOptionPane.showMessageDialog(frame, "Le noeud final atteint est : " + currentNode.getInput()); // Le noeud est affiché
+        JOptionPane.showMessageDialog(frame, "Le noeud final atteint est : " + currentNode.getInput()); // Le noeud affiché
     }
 
     public static void main(String[] args) {

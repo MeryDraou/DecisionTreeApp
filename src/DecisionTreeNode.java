@@ -54,7 +54,7 @@ public class DecisionTreeNode {
      * @return
      */
     public HashMap<String, DecisionTreeNode> getChildren() {
-        return this.children;
+        return this.children; // Obtenir l'enfant du noeud
     }
 
 }

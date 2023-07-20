@@ -41,7 +41,7 @@ public class DecisionTree {
         nodeServer.addChild("Exposition", nodeExposition); // Exposition
         nodeTerminal.addChild("Réseau", nodeReseau); // Réseau
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // Z_I_IMPRIM
-        nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_I_SCAN_MEDIC
+        nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_M_SCAN_MEDIC
 
         nodeExposition.addChild("E", nodeE); // E
         nodeReseau.addChild("R", nodeR); // R
@@ -111,7 +111,7 @@ public class DecisionTree {
             String choice = scanner.nextLine();
             currentNode = currentNode.getChild(choice);
             if (currentNode == null) {
-                System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, sélectionné un nouveau noeud
+                System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, sélectionner un nouveau noeud
                 currentNode = root;
             }
         }
