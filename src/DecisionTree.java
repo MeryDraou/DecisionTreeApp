@@ -27,8 +27,8 @@ public class DecisionTree {
         DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE"); // R : WIFI ou FILAIRE
 
         // Hauteur 5
-        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement"); // Environnement
-        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement"); // Environnement
+        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement"); // Environnement, branche gauche
+        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement"); // Environnement, branche droite
 
         // Hauteur 6
         root = nodeApplicationEquipment;
@@ -37,15 +37,15 @@ public class DecisionTree {
         root.addChild("Imprimante", nodePrinter); // Imprimante
         root.addChild("Scanneur", nodeScanner); // Scanneur
 
-
         nodeServer.addChild("Exposition", nodeExposition); // Exposition
         nodeTerminal.addChild("Réseau", nodeReseau); // Réseau
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // Z_I_IMPRIM
         nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_M_SCAN_MEDIC
 
         nodeExposition.addChild("Environnement", nodeE); // E : "noeud Exposition"
-        nodeReseau.addChild("R", nodeR); // R : "noeud Réseau"
+        nodeReseau.addChild("Réseau", nodeR); // Noeud Réseau
 
+        // Noeuds Environnement
         nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1 : "zone d'environnement la plus à gauche"
         nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2 : "zone d'environnement la plus à droite"
 
@@ -56,27 +56,26 @@ public class DecisionTree {
         DecisionTreeNode nodeFormation = new DecisionTreeNode("Formation"); // Formation
         DecisionTreeNode nodeTest = new DecisionTreeNode("Test"); // Test
 
-        // Ajout précédent à ne pas modifier
-        nodeEnvironnement1.addChild("Integration", nodeIntegration);
-        nodeDeveloppement.addChild("Developpement", nodeDeveloppement);
-        nodeProduction.addChild("Production", nodeProduction);
-        nodeRecette.addChild("Recette", nodeRecette);
-        nodeFormation.addChild("Formation", nodeFormation);
-        nodeTest.addChild("Test", nodeTest); // "noeud test"
 
-        // Ajout précédent à ne pas modifier
+        nodeEnvironnement1.addChild("Integration", nodeIntegration); // Noeud Integration
+        nodeDeveloppement.addChild("Developpement", nodeDeveloppement); // Noeud Développement
+        nodeProduction.addChild("Production", nodeProduction); // Noeud Production
+        nodeRecette.addChild("Recette", nodeRecette); // Noeud Recette
+        nodeFormation.addChild("Formation", nodeFormation); // Noeud Formation
+        nodeTest.addChild("Test", nodeTest); // "Noeud test"
+
         // Continuer à ajouter les noeuds à partir de la hauteur 6 de l'arbre
         DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE"); // Noeud SIE
-        DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV");
-        DecisionTreeNode nodeHDS = new DecisionTreeNode("HDS");
-        DecisionTreeNode nodeDiffusionRestreinte = new DecisionTreeNode("Diffusion Restreinte");
+        DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV"); // Noeud SIIV
+        DecisionTreeNode nodeHDS = new DecisionTreeNode("HDS"); // Noeud HDS
+        DecisionTreeNode nodeDiffusionRestreinte = new DecisionTreeNode("Diffusion Restreinte"); // Noeud Diffusion Restreinte
         DecisionTreeNode nodeNon = new DecisionTreeNode("Non"); // Noeud "Non"
 
-        nodeSIE.addChild("SIE", nodeSIE);
-        nodeSIIV.addChild("SIIV", nodeSIIV);
-        nodeHDS.addChild("HDS", nodeHDS);
-        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Noeud "Diffusion Restreinte"
-        nodeNon.addChild("Non", nodeNon); // Noeud "Non"
+        nodeSIE.addChild("SIE", nodeSIE); // Noeud SIE
+        nodeSIIV.addChild("SIIV", nodeSIIV); // Noeud SIIV
+        nodeHDS.addChild("HDS", nodeHDS); // Noeud HDS
+        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Noeud Diffusion Restreinte
+        nodeNon.addChild("Non", nodeNon); // Noeud Non
 
        // DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
@@ -85,18 +84,19 @@ public class DecisionTree {
         DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
 
         DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE"); // A modifier : pas un noeud final
-        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR"); // A modifier : pas un noeud final
-        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE"); // A modifier : pas un noeud final
-        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE"); // A modifier : pas un noeud final
+        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
+        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
+        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
 
         nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // A modifier : pas un noeud final
-        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique); // A modifier : pas un noeud final
-        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante); // A modifier : pas un noeud final
-        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale); // A modifier : pas un noeud final
+        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique);
+        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
+        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
 
         // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre et modifier les choix après "Environnement"
-        // à modifier
 
+        DecisionTreeNode nodeNo = new DecisionTreeNode("No");
+        nodeNo.addChild("VLAN1", nodeNo);
     }
 
     /**
@@ -116,12 +116,11 @@ public class DecisionTree {
                 currentNode = root;
             }
         }
-        System.out.println("Noeud final atteint : " + currentNode.getInput()); // Noeud final obtenu et atteint
+        System.out.println("Noeud final atteint : " + currentNode.getInput());
     }
 
     public DecisionTreeNode getRoot() {
         return this.root;
-        // Obtenir la racine de l'arbre
     }
 
 }

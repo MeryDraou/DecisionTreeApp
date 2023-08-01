@@ -65,7 +65,7 @@ class TreePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawTree(g, root, getWidth() / 2, 50, getWidth() / 4); // Dessiner l'arbre à partir de la racine
+        drawTree(g, root, getWidth() / 2, 50, getWidth() / 4); // Dessiner l'arbre à partir du noeud racine
     }
 
     private void drawTree(Graphics g, DecisionTreeNode node, int x, int y, int spacing) {
@@ -79,8 +79,8 @@ class TreePanel extends JPanel {
             int xLeft = x - spacing;
             int xRight = x + spacing;
 
-            int yLeft = y + 50;
-            int yRight = y + 50;
+            int yLeft = y + 50; // left à modifier
+            int yRight = y + 50; // right à modifier
 
             g.drawLine(x, y + 5, xLeft, yLeft - 15);
             g.drawLine(x, y + 5, xRight, yRight - 15);

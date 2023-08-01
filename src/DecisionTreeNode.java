@@ -4,7 +4,7 @@ import java.util.HashMap;
  */
 public class DecisionTreeNode {
     private String input;
-    private HashMap<String, DecisionTreeNode> children; // hashmap utilisée à modifier potentiellement avec linked list
+    private HashMap<String, DecisionTreeNode> children; // hashmap à modifier avec linked list
 
     /**
      * Constructeur
@@ -20,7 +20,7 @@ public class DecisionTreeNode {
      * @return message retourné
      */
     public String getInput() {
-        return this.input; // Récupérer noeud choisis
+        return this.input; // Récupérer noeud choisis par l'utilisateur
     }
 
     /**
@@ -29,7 +29,7 @@ public class DecisionTreeNode {
      * @return
      */
     public DecisionTreeNode getChild(String decision) {
-        return this.children.get(decision); // Récupérer noeud fils
+        return this.children.get(decision);
     }
 
     /**
@@ -54,7 +54,7 @@ public class DecisionTreeNode {
      * @return
      */
     public HashMap<String, DecisionTreeNode> getChildren() {
-        return this.children; // Obtenir l'enfant du noeud
+        return this.children;
     }
 
 }
