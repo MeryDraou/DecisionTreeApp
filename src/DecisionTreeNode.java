@@ -46,7 +46,7 @@ public class DecisionTreeNode {
      * @return
      */
     public boolean isLeaf() {
-        return this.children.isEmpty(); // si le noeud est vide
+        return this.children.isEmpty(); // si le noeud est vi
     }
 
     /**

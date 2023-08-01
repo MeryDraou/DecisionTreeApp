@@ -43,18 +43,18 @@ public class DecisionTree {
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // Z_I_IMPRIM
         nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_M_SCAN_MEDIC
 
-        nodeExposition.addChild("E", nodeE); // E
-        nodeReseau.addChild("R", nodeR); // R
+        nodeExposition.addChild("Environnement", nodeE); // E : "noeud Exposition"
+        nodeReseau.addChild("R", nodeR); // R : "noeud Réseau"
 
-        nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1
-        nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2
+        nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1 : "zone d'environnement la plus à gauche"
+        nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2 : "zone d'environnement la plus à droite"
 
-        DecisionTreeNode nodeIntegration = new DecisionTreeNode("Integration");
-        DecisionTreeNode nodeDeveloppement = new DecisionTreeNode("Development");
-        DecisionTreeNode nodeProduction = new DecisionTreeNode("Production");
-        DecisionTreeNode nodeRecette = new DecisionTreeNode("Recette");
-        DecisionTreeNode nodeFormation = new DecisionTreeNode("Formation");
-        DecisionTreeNode nodeTest = new DecisionTreeNode("Test");
+        DecisionTreeNode nodeIntegration = new DecisionTreeNode("Integration"); // Integration
+        DecisionTreeNode nodeDeveloppement = new DecisionTreeNode("Developpement"); // Developpement
+        DecisionTreeNode nodeProduction = new DecisionTreeNode("Production"); // Production
+        DecisionTreeNode nodeRecette = new DecisionTreeNode("Recette"); // Recette
+        DecisionTreeNode nodeFormation = new DecisionTreeNode("Formation"); // Formation
+        DecisionTreeNode nodeTest = new DecisionTreeNode("Test"); // Test
 
         // Ajout précédent à ne pas modifier
         nodeEnvironnement1.addChild("Integration", nodeIntegration);
@@ -62,21 +62,21 @@ public class DecisionTree {
         nodeProduction.addChild("Production", nodeProduction);
         nodeRecette.addChild("Recette", nodeRecette);
         nodeFormation.addChild("Formation", nodeFormation);
-        nodeTest.addChild("Test", nodeTest);
+        nodeTest.addChild("Test", nodeTest); // "noeud test"
 
         // Ajout précédent à ne pas modifier
         // Continuer à ajouter les noeuds à partir de la hauteur 6 de l'arbre
-        DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE");
+        DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE"); // Noeud SIE
         DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV");
         DecisionTreeNode nodeHDS = new DecisionTreeNode("HDS");
         DecisionTreeNode nodeDiffusionRestreinte = new DecisionTreeNode("Diffusion Restreinte");
-        DecisionTreeNode nodeNon = new DecisionTreeNode("Non");
+        DecisionTreeNode nodeNon = new DecisionTreeNode("Non"); // Noeud "Non"
 
         nodeSIE.addChild("SIE", nodeSIE);
         nodeSIIV.addChild("SIIV", nodeSIIV);
         nodeHDS.addChild("HDS", nodeHDS);
         nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Noeud "Diffusion Restreinte"
-        nodeNon.addChild("Non", nodeNon); // Noeud "non"
+        nodeNon.addChild("Non", nodeNon); // Noeud "Non"
 
        // DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
@@ -84,17 +84,18 @@ public class DecisionTree {
         DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique");
         DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
 
-        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE"); // Noeud final
-        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR"); // Noeud final
-        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE"); // Noeud final
-        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE"); // Noeud final
+        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE"); // A modifier : pas un noeud final
+        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR"); // A modifier : pas un noeud final
+        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE"); // A modifier : pas un noeud final
+        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE"); // A modifier : pas un noeud final
 
-        nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // Noeud final
-        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique); // Noeud final
-        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante); // Noeud final
-        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale); // Noeud final
+        nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // A modifier : pas un noeud final
+        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique); // A modifier : pas un noeud final
+        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante); // A modifier : pas un noeud final
+        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale); // A modifier : pas un noeud final
 
         // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre et modifier les choix après "Environnement"
+        // à modifier
 
     }
 
@@ -119,7 +120,8 @@ public class DecisionTree {
     }
 
     public DecisionTreeNode getRoot() {
-        return this.root;  // obtenir la racine de l'arbre
+        return this.root;
+        // Obtenir la racine de l'arbre
     }
 
 }
