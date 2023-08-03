@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Classe de l'arbre de décision
+ * Decision tree class
  */
 public class DecisionTree {
     DecisionTreeNode root;

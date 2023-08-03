@@ -1,6 +1,6 @@
 import java.util.HashMap;
 /**
- * Noeuds de l'arbre de décision
+ * Decision tree nodes
  */
 public class DecisionTreeNode {
     private String input;
@@ -20,9 +20,9 @@ public class DecisionTreeNode {
      * @return message retourné
      */
     public String getInput() {
-        return this.input; // Récupérer noeud choisis par l'utilisateur
+        return this.input;
     }
-
+    // Récupérer noeud choisis par l'utilisateur
     /**
      * Pour obtenir l'enfant choisis
      * @param decision

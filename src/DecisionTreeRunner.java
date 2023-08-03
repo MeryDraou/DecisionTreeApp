@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Arbre de décision de l'APHM : partie Réseau à modifier
+ * APHM Decision tree
  */
 public class DecisionTreeRunner {
     DecisionTree tree; // Arbre de décision APHM
