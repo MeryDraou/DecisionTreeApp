@@ -45,7 +45,7 @@ public class DecisionTree {
         nodeExposition.addChild("Environnement", nodeE); // E : "noeud Exposition"
         nodeReseau.addChild("Réseau", nodeR); // Noeud Réseau
 
-        // Noeuds Environnement
+        // Noeuds
         nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1 : "zone d'environnement la plus à gauche"
         nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2 : "zone d'environnement la plus à droite"
 

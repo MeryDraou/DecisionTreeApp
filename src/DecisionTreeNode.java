@@ -1,6 +1,6 @@
 import java.util.HashMap;
 /**
- * Decision tree nodes
+ * Decision Tree
  */
 public class DecisionTreeNode {
     private String input;
