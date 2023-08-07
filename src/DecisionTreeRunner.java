@@ -13,7 +13,14 @@ public class DecisionTreeRunner {
     }
 
     public void run() {
-        JFrame frame = new JFrame("Arbre de décision APHM");
+        // Personnaliser l'apparence de la barre de titre
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.getContentPane().setBackground(Color.BLACK);
@@ -78,6 +85,14 @@ public class DecisionTreeRunner {
 
         mainPanel.add(contentPanel, BorderLayout.CENTER);
         frame.add(mainPanel);
+
+        // Personnaliser le texte de la barre de titre
+        JLabel titleLabel = new JLabel("Arbre de décision APHM");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setForeground(new Color(255, 140, 0));
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        frame.add(titleLabel, BorderLayout.NORTH);
+
         frame.setVisible(true);
     }
 
