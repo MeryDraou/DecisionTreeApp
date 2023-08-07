@@ -130,7 +130,7 @@ class DecisionTreePanel extends JPanel {
                 int startY = y + 20;
 
                 for (DecisionTreeNode child : node.getChildren().values()) {
-                    // Dessinez le lien entre le nœud actuel et l'enfant
+                    // Dessinez le lien entre le noeud actuel et l'enfant
                     g.setColor(Color.BLACK);
                     g.drawLine(x, y, startX, startY);
 
@@ -140,4 +140,5 @@ class DecisionTreePanel extends JPanel {
             }
         }
     }
+
 }
