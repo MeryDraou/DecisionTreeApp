@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -5,6 +6,16 @@ import java.util.Scanner;
  */
 public class DecisionTree {
     DecisionTreeNode root;
+    ArrayList<String> pathNodes = new ArrayList<>(); // liste de décisions
+
+
+
+    public void addPathNodes(String decision) {
+        pathNodes.add(decision);
+    }
+    public ArrayList<String> getPathNodes() {
+        return pathNodes;
+    }
     public DecisionTree() {
         // Hauteur 1
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
@@ -27,8 +38,8 @@ public class DecisionTree {
         DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE"); // R : WIFI ou FILAIRE
 
         // Hauteur 5
-        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement"); // Environnement, branche gauche
-        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement"); // Environnement, branche droite
+        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1"); // Environnement, branche gauche
+        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2"); // Environnement, branche droite
 
         // Hauteur 6
         root = nodeApplicationEquipment;
@@ -42,7 +53,7 @@ public class DecisionTree {
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // Z_I_IMPRIM
         nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_M_SCAN_MEDIC
 
-        nodeExposition.addChild("Environnement", nodeE); // E : "noeud Exposition"
+        nodeExposition.addChild("E : Interne, GHT, Publique Large, Publique Restreint", nodeE); // E : "noeud Exposition"
         nodeReseau.addChild("Réseau", nodeR); // Noeud Réseau
 
         // Noeuds
@@ -57,7 +68,7 @@ public class DecisionTree {
         DecisionTreeNode nodeTest = new DecisionTreeNode("Test"); // Test
 
 
-        nodeEnvironnement1.addChild("Integration", nodeIntegration); // Noeud Integration
+        nodeEnvironnement2.addChild("Integration", nodeIntegration); // Noeud Integration
         nodeDeveloppement.addChild("Developpement", nodeDeveloppement); // Noeud Développement
         nodeProduction.addChild("Production", nodeProduction); // Noeud Production
         nodeRecette.addChild("Recette", nodeRecette); // Noeud Recette
@@ -114,6 +125,10 @@ public class DecisionTree {
             if (currentNode == null) {
                 System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, sélectionner un nouveau noeud
                 currentNode = root;
+            }
+            else {
+                System.out.println("Choix valide. Veuillez continuer.");
+                addPathNodes(choice);
             }
         }
         System.out.println("Noeud final atteint : " + currentNode.getInput());

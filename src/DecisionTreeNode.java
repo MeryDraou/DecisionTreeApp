@@ -6,6 +6,8 @@ public class DecisionTreeNode {
     private String input;
     private HashMap<String, DecisionTreeNode> children; // hashmap à modifier avec linked list
 
+    private String nameNode;
+
     /**
      * Constructeur
      * @param message
@@ -13,6 +15,11 @@ public class DecisionTreeNode {
     public DecisionTreeNode(String message) {
         this.input = message;
         this.children = new HashMap<>();
+        this.nameNode = message;
+    }
+
+    public String getNameNode() {
+        return this.nameNode;
     }
 
     /**

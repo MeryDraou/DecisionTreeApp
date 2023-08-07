@@ -47,6 +47,10 @@ public class DecisionTreeRunner {
                 JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez essayer à nouveau.");
                 currentNode = tree.getRoot();
             }
+            else {
+                System.out.println("Choix valide. Veuillez continuer.");
+                tree.addPathNodes(userInput);
+            }
 
             questionList.add(currentNode.getInput());
         }
@@ -57,6 +61,9 @@ public class DecisionTreeRunner {
         }
         Object[] columnNames = {"Questions"};
 
+        // ajout
+        System.out.println("PATH NODES");
+        tree.getPathNodes().stream().forEach(System.out::println);
         JTable questionTable = new JTable(new DefaultTableModel(rowData, columnNames)) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -119,7 +126,12 @@ class DecisionTreePanel extends JPanel {
 
         private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, Graphics g) {
             // Dessinez le nœud à la position (x, y)
-            g.setColor(Color.BLACK);
+            if(tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode())))
+                g.setColor(Color.RED);
+            else
+                g.setColor(Color.GREEN);
+
+            // g.setColor(Color.BLACK);
             g.fillOval(x - 10, y - 10, 20, 20);
             g.setColor(Color.WHITE);
             g.drawString(node.getInput(), x - 5, y + 5);
