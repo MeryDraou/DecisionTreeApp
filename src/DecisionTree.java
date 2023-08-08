@@ -23,7 +23,7 @@ public class DecisionTree {
 
         // Hauteur 2
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
-        DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client (PC, VDI, MAC, Mobile, IOT...)");
+        DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client)");
         DecisionTreeNode nodePrinter = new DecisionTreeNode("I : Imprimante");
         DecisionTreeNode nodeScanner = new DecisionTreeNode("M : Scanneur médical");
 
@@ -34,7 +34,7 @@ public class DecisionTree {
         DecisionTreeNode nodeZMScanMedic = new DecisionTreeNode("Z_M_SCAN_MEDIC"); // Z_M_SCAN_MEDIC
 
         // Hauteur 4
-        DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne, GHT, Publique Large, Publique Restreint"); // E : Interne, GHT, Publique Large, Public Restreint
+        DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne ou autre"); // E : Interne, GHT, Publique Large, Public Restreint
         DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE"); // R : WIFI ou FILAIRE
 
         // Hauteur 5
@@ -53,7 +53,7 @@ public class DecisionTree {
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // Z_I_IMPRIM
         nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // Z_M_SCAN_MEDIC
 
-        nodeExposition.addChild("E : Interne, GHT, Publique Large, Publique Restreint", nodeE); // E : "noeud Exposition"
+        nodeExposition.addChild("E : Interne ou autre", nodeE); // E : "noeud Exposition"
         nodeReseau.addChild("Réseau", nodeR); // Noeud Réseau
 
         // Noeuds

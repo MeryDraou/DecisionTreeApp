@@ -99,6 +99,14 @@ public class DecisionTreeRunner {
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
+        // ajout pour logo
+        // Chargement de l'image du logo
+        ImageIcon logoIcon = new ImageIcon("logo.png");
+
+        // Affichage du logo dans un JLabel
+        JLabel logoLabel = new JLabel(logoIcon);
+        frame.add(logoLabel, BorderLayout.NORTH);
+
 
         frame.setVisible(true);
     }
@@ -106,51 +114,54 @@ public class DecisionTreeRunner {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new DecisionTreeRunner().run());
     }
-
-    // La classe DecisionTreePanel reste inchangée
+}
 
 class DecisionTreePanel extends JPanel {
-        private DecisionTree tree;
+    private static final int NODE_SIZE = 40; // Taille des nœuds
+    private static final int LEVEL_HEIGHT = 100; // Espacement vertical entre les niveaux
+    private static final int TEXT_RECTANGLE_WIDTH = 160; // Largeur du rectangle de fond
+    private static final int TEXT_RECTANGLE_HEIGHT = 60; // Hauteur du rectangle de fond
+    private DecisionTree tree;
 
-        public DecisionTreePanel(DecisionTree tree) {
-            this.tree = tree;
-        }
+    public DecisionTreePanel(DecisionTree tree) {
+        this.tree = tree;
+    }
 
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
-            // Dessiner les nœuds et les liens de l'arbre de décision ici
-            drawTree(tree.getRoot(), getWidth() / 2, 50, 100, g);
-        }
+        // Dessiner les nœuds et les liens de l'arbre de décision ici
+        drawTree(tree.getRoot(), getWidth() / 2, 50, 200, 0, g);
+    }
 
-        private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, Graphics g) {
-            // Dessinez le nœud à la position (x, y)
-            if(tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode())))
-                g.setColor(Color.RED);
-            else
-                g.setColor(Color.GREEN);
+    private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, int level, Graphics g) {
+        // Dessinez le nœud à la position (x, y)
+        if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode())))
+            g.setColor(Color.RED);
+        else
+            g.setColor(Color.GREEN);
 
-            // g.setColor(Color.BLACK);
-            g.fillOval(x - 10, y - 10, 20, 20);
-            g.setColor(Color.WHITE);
-            g.drawString(node.getInput(), x - 5, y + 5);
+        int textX = x - TEXT_RECTANGLE_WIDTH / 2;
+        int textY = y - TEXT_RECTANGLE_HEIGHT / 2;
 
-            if (!node.isLeaf()) {
-                int childCount = node.getChildren().size();
-                int startX = x - xOffset * (childCount - 1) / 2;
-                int startY = y + 20;
+        g.fillRect(textX, textY, TEXT_RECTANGLE_WIDTH, TEXT_RECTANGLE_HEIGHT);
+        g.setColor(Color.WHITE);
+        g.drawString(node.getInput(), textX + 10, textY + TEXT_RECTANGLE_HEIGHT / 2 + 5);
 
-                for (DecisionTreeNode child : node.getChildren().values()) {
-                    // Dessinez le lien entre le noeud actuel et l'enfant
-                    g.setColor(Color.BLACK);
-                    g.drawLine(x, y, startX, startY);
+        if (!node.isLeaf()) {
+            int childCount = node.getChildren().size();
+            int startX = x - xOffset * (childCount - 1) / 2;
+            int startY = y + NODE_SIZE / 2 + LEVEL_HEIGHT; // Ajustez la position Y pour le lien et l'espacement
 
-                    drawTree(child, startX, startY, xOffset / 2, g);
-                    startX += xOffset;
-                }
+            for (DecisionTreeNode child : node.getChildren().values()) {
+                // Dessinez le lien entre le noeud actuel et l'enfant
+                g.setColor(Color.BLACK);
+                g.drawLine(x, textY + TEXT_RECTANGLE_HEIGHT, startX, startY); // Ligne partant du bas du rectangle
+
+                drawTree(child, startX, startY, xOffset / 2, level + 1, g);
+                startX += xOffset;
             }
         }
     }
-
 }
