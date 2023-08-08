@@ -99,14 +99,6 @@ public class DecisionTreeRunner {
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
-        // ajout pour logo
-        // Chargement de l'image du logo
-        ImageIcon logoIcon = new ImageIcon("logo.png");
-
-        // Affichage du logo dans un JLabel
-        JLabel logoLabel = new JLabel(logoIcon);
-        frame.add(logoLabel, BorderLayout.NORTH);
-
 
         frame.setVisible(true);
     }
