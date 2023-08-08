@@ -148,10 +148,10 @@ class DecisionTreePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // Dessiner les nœuds et les liens de l'arbre de décision ici
+        // Dessiner les nœuds et les liens de l'arbre de décision
         drawTree(tree.getRoot(), getWidth() / 2, 50, 200, 0, g);
     }
-
+    // Dessiner l'arbre de décision
     private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, int level, Graphics g) {
         Color darkGreen = new Color(0, 100, 0); // Vert foncé
         Color darkRed = new Color(139, 0, 0); // Pour un rouge vif : new Color(255, 0 , 0)
@@ -162,8 +162,9 @@ class DecisionTreePanel extends JPanel {
         } else if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode()))) {
             g.setColor(darkRed); // Utiliser le rouge standard pour les autres nœuds marqués
         } else {
-            g.setColor(darkGreen); // Utiliser le vert foncé pour les autres nœuds
+            g.setColor(darkGreen); // Utiliser le vert foncé pour les autres noeuds
         }
+
 
 
 

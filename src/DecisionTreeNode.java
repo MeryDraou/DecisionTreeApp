@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 /**
- * Decision Tree
+ * Nodes Class
  */
 public class DecisionTreeNode {
     private String input;
@@ -9,7 +9,7 @@ public class DecisionTreeNode {
     private String nameNode;
 
     /**
-     * Constructeur
+     * Constructor
      * @param message
      */
     public DecisionTreeNode(String message) {
@@ -18,20 +18,18 @@ public class DecisionTreeNode {
         this.nameNode = message;
     }
 
-    public String getNameNode() {
-        return this.nameNode;
-    }
+    public String getNameNode() { return this.nameNode; }
 
     /**
-     * Pour obtenir le résultat du noeud choisis
-     * @return message retourné
+     * Method to get the result of the selected node
+     * @return input
      */
     public String getInput() {
         return this.input;
     }
     // Récupérer noeud choisis par l'utilisateur
     /**
-     * Pour obtenir l'enfant choisis
+     * Method to get the child
      * @param decision
      * @return
      */
@@ -40,7 +38,7 @@ public class DecisionTreeNode {
     }
 
     /**
-     * Pour ajouter un enfant au noeud
+     * Method to add a child
      * @param decision
      * @param child
      */
@@ -49,15 +47,13 @@ public class DecisionTreeNode {
     }
 
     /**
-     * Pour détecter si c'est le noeud correspondant
+     * Method to detect if it's the correct node
      * @return
      */
-    public boolean isLeaf() {
-        return this.children.isEmpty(); // si le noeud est vi
-    }
+    public boolean isLeaf() { return this.children.isEmpty(); }
 
     /**
-     * Pour obtenir le noeud associé de l'arbre de décision
+     * Method to get the correct child
      * @return
      */
     public HashMap<String, DecisionTreeNode> getChildren() {

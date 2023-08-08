@@ -6,9 +6,7 @@ import java.util.Scanner;
  */
 public class DecisionTree {
     DecisionTreeNode root;
-    ArrayList<String> pathNodes = new ArrayList<>(); // liste de décisions
-
-
+    ArrayList<String> pathNodes = new ArrayList<>(); // list of decisions
 
     public void addPathNodes(String decision) {
         pathNodes.add(decision);
@@ -16,6 +14,10 @@ public class DecisionTree {
     public ArrayList<String> getPathNodes() {
         return pathNodes;
     }
+
+    /**
+     * Constructor
+     */
     public DecisionTree() {
         // Hauteur 1
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
@@ -38,8 +40,8 @@ public class DecisionTree {
         DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE"); // R : WIFI ou FILAIRE
 
         // Hauteur 5
-        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1"); // Environnement, branche gauche
-        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2"); // Environnement, branche droite
+        DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1"); // Environnement, left leaf
+        DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2"); // Environnement, right leaf
 
         // Hauteur 6
         root = nodeApplicationEquipment;
@@ -56,9 +58,9 @@ public class DecisionTree {
         nodeExposition.addChild("E : Interne ou autre", nodeE); // E : "noeud Exposition"
         nodeReseau.addChild("Réseau", nodeR); // Noeud Réseau
 
-        // Noeuds
-        nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1 : "zone d'environnement la plus à gauche"
-        nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2 : "zone d'environnement la plus à droite"
+        // Nodes
+        nodeE.addChild("Environnement1", nodeEnvironnement1); // Environnement1
+        nodeR.addChild("Environnement2", nodeEnvironnement2); // Environnement2
 
         DecisionTreeNode nodeIntegration = new DecisionTreeNode("Integration"); // Integration
         DecisionTreeNode nodeDeveloppement = new DecisionTreeNode("Developpement"); // Developpement
@@ -66,7 +68,6 @@ public class DecisionTree {
         DecisionTreeNode nodeRecette = new DecisionTreeNode("Recette"); // Recette
         DecisionTreeNode nodeFormation = new DecisionTreeNode("Formation"); // Formation
         DecisionTreeNode nodeTest = new DecisionTreeNode("Test"); // Test
-
 
         nodeEnvironnement2.addChild("Integration", nodeIntegration); // Noeud Integration
         nodeDeveloppement.addChild("Developpement", nodeDeveloppement); // Noeud Développement
@@ -82,11 +83,11 @@ public class DecisionTree {
         DecisionTreeNode nodeDiffusionRestreinte = new DecisionTreeNode("Diffusion Restreinte"); // Noeud Diffusion Restreinte
         DecisionTreeNode nodeNon = new DecisionTreeNode("Non"); // Noeud "Non"
 
-        nodeSIE.addChild("SIE", nodeSIE); // Noeud SIE
-        nodeSIIV.addChild("SIIV", nodeSIIV); // Noeud SIIV
-        nodeHDS.addChild("HDS", nodeHDS); // Noeud HDS
-        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Noeud Diffusion Restreinte
-        nodeNon.addChild("Non", nodeNon); // Noeud Non
+        nodeSIE.addChild("SIE", nodeSIE); // SIE node
+        nodeSIIV.addChild("SIIV", nodeSIIV); // SIIV node
+        nodeHDS.addChild("HDS", nodeHDS); // HDS node
+        nodeDiffusionRestreinte.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Diffusion Restreinte node
+        nodeNon.addChild("Non", nodeNon); // Non node
 
        // DecisionTreeNode nodeCriticitePASSI = new DecisionTreeNode("Criticite (PASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
@@ -104,36 +105,38 @@ public class DecisionTree {
         nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
         nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
 
-        // Continuer à ajouter les noeuds à partir de la hauteur 7 de l'arbre et modifier les choix après "Environnement"
-
         DecisionTreeNode nodeNo = new DecisionTreeNode("No");
         nodeNo.addChild("VLAN1", nodeNo);
     }
 
     /**
-     * Méthode pour implémenter la décision d'un noeud par l'utilisateur
+     * Method for deciding the choice of the user
      * TODO : à modifier et personnaliser le choix de l'utilisateur
      */
     public void decide() {
         Scanner scanner = new Scanner(System.in);
-        DecisionTreeNode currentNode = root;
+        DecisionTreeNode currentNode = root; // root
 
         while (!currentNode.isLeaf()) {
             System.out.println(currentNode.getInput());
             String choice = scanner.nextLine();
             currentNode = currentNode.getChild(choice);
             if (currentNode == null) {
-                System.out.println("Choix non valide. Veuillez recommencer."); // si choix non valide, sélectionner un nouveau noeud
+                System.out.println("Choix non valide. Veuillez recommencer."); // if correct choice, select a node
                 currentNode = root;
             }
             else {
-                System.out.println("Choix valide. Veuillez continuer.");
+                System.out.println("Choix valide. Veuillez continuer."); // if correct choice, select a node
                 addPathNodes(choice);
             }
         }
-        System.out.println("Noeud final atteint : " + currentNode.getInput());
+        System.out.println("Noeud final atteint : " + currentNode.getInput()); // final node
     }
 
+    /**
+     * Method to get the root
+     * @return
+     */
     public DecisionTreeNode getRoot() {
         return this.root;
     }
