@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class DecisionTreeNode {
     private String input;
     private HashMap<String, DecisionTreeNode> children; // hashmap à modifier avec linked list
-
     private String nameNode;
 
     /**

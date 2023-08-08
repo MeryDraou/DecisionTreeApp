@@ -13,6 +13,8 @@ public class DecisionTreeRunner {
     }
 
     public void run() {
+
+
         // Personnaliser l'apparence de la barre de titre
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -59,7 +61,7 @@ public class DecisionTreeRunner {
         for (int i = 0; i < questionList.size(); i++) {
             rowData[i][0] = questionList.get(i);
         }
-        Object[] columnNames = {"Questions"};
+        Object[] columnNames = {"Vos choix sélectionnés"};
 
         // ajout
         System.out.println("PATH NODES");
@@ -99,6 +101,29 @@ public class DecisionTreeRunner {
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
+        // ajout pour logo
+        // Chargement de l'image du logo
+        ImageIcon logoIcon = new ImageIcon("images/logo.png"); // Remplacez "logo.png" par le nom de votre fichier PNG
+
+// Création du label pour afficher le logo
+        JLabel logoLabel = new JLabel(logoIcon);
+
+// Modification de la propriété du label existant pour le titre
+        titleLabel.setText("Arbre de décision APHM");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setForeground(new Color(255, 140, 0));
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+// Création du panel pour la barre supérieure
+        JPanel topBarPanel = new JPanel(new BorderLayout());
+        topBarPanel.setBackground(Color.BLACK);
+        topBarPanel.add(logoLabel, BorderLayout.WEST);
+        topBarPanel.add(titleLabel, BorderLayout.CENTER);
+
+        frame.add(topBarPanel, BorderLayout.NORTH);
+
+
+
 
         frame.setVisible(true);
     }
@@ -128,11 +153,19 @@ class DecisionTreePanel extends JPanel {
     }
 
     private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, int level, Graphics g) {
+        Color darkGreen = new Color(0, 100, 0); // Vert foncé
+        Color darkRed = new Color(139, 0, 0); // Pour un rouge vif : new Color(255, 0 , 0)
+
         // Dessinez le nœud à la position (x, y)
-        if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode())))
-            g.setColor(Color.RED);
-        else
-            g.setColor(Color.GREEN);
+        if (node.getNameNode().equals("Application ou équipement")) {
+            g.setColor(darkRed); // Utiliser le rouge foncé pour les nœuds "Application" ou "Équipement"
+        } else if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode()))) {
+            g.setColor(darkRed); // Utiliser le rouge standard pour les autres nœuds marqués
+        } else {
+            g.setColor(darkGreen); // Utiliser le vert foncé pour les autres nœuds
+        }
+
+
 
         int textX = x - TEXT_RECTANGLE_WIDTH / 2;
         int textY = y - TEXT_RECTANGLE_HEIGHT / 2;

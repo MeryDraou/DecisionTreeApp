@@ -23,7 +23,7 @@ public class DecisionTree {
 
         // Hauteur 2
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
-        DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client)");
+        DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client");
         DecisionTreeNode nodePrinter = new DecisionTreeNode("I : Imprimante");
         DecisionTreeNode nodeScanner = new DecisionTreeNode("M : Scanneur médical");
 
