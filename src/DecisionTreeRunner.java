@@ -101,20 +101,21 @@ public class DecisionTreeRunner {
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
-        // ajout pour logo
+        // ajout du logo
         // Chargement de l'image du logo
-        ImageIcon logoIcon = new ImageIcon("images/logo.png"); // Remplacez "logo.png" par le nom de votre fichier PNG
+        ImageIcon logoIcon = new ImageIcon("images/logo.png"); // "logo.png" à remplacer par le nom du fichier png
+        // à modifier pour adpater le logo
 
-// Création du label pour afficher le logo
+        // Création du label pour afficher le logo
         JLabel logoLabel = new JLabel(logoIcon);
 
-// Modification de la propriété du label existant pour le titre
+        // Modification de la propriété du label existant pour le titre
         titleLabel.setText("Arbre de décision APHM");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-// Création du panel pour la barre supérieure
+        // Création du panel pour la barre supérieure
         JPanel topBarPanel = new JPanel(new BorderLayout());
         topBarPanel.setBackground(Color.BLACK);
         topBarPanel.add(logoLabel, BorderLayout.WEST);
@@ -160,12 +161,10 @@ class DecisionTreePanel extends JPanel {
         if (node.getNameNode().equals("Application ou équipement")) {
             g.setColor(darkRed); // Utiliser le rouge foncé pour les nœuds "Application" ou "Équipement"
         } else if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode()))) {
-            g.setColor(darkRed); // Utiliser le rouge standard pour les autres nœuds marqués
+            g.setColor(darkRed); // Utiliser le rouge standard pour les autres noeuds marqués
         } else {
             g.setColor(darkGreen); // Utiliser le vert foncé pour les noeuds suivants
         }
-
-
 
 
         int textX = x - TEXT_RECTANGLE_WIDTH / 2;
@@ -178,12 +177,12 @@ class DecisionTreePanel extends JPanel {
         if (!node.isLeaf()) {
             int childCount = node.getChildren().size();
             int startX = x - xOffset * (childCount - 1) / 2;
-            int startY = y + NODE_SIZE / 2 + LEVEL_HEIGHT; // Ajustez la position Y pour le lien et l'espacement
+            int startY = y + NODE_SIZE / 2 + LEVEL_HEIGHT; // la position Y pour le lien et l'espacement à ajuster
 
             for (DecisionTreeNode child : node.getChildren().values()) {
                 // Dessinez le lien entre le noeud actuel et l'enfant
                 g.setColor(Color.BLACK);
-                g.drawLine(x, textY + TEXT_RECTANGLE_HEIGHT, startX, startY); // Ligne partant du bas du rectangle
+                g.drawLine(x, textY + TEXT_RECTANGLE_HEIGHT, startX, startY); // ligne partant du bas du rectangle
 
                 drawTree(child, startX, startY, xOffset / 2, level + 1, g);
                 startX += xOffset;
