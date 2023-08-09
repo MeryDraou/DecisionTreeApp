@@ -162,7 +162,7 @@ class DecisionTreePanel extends JPanel {
         } else if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode()))) {
             g.setColor(darkRed); // Utiliser le rouge standard pour les autres nœuds marqués
         } else {
-            g.setColor(darkGreen); // Utiliser le vert foncé pour les autres noeuds
+            g.setColor(darkGreen); // Utiliser le vert foncé pour les noeuds suivants
         }
 
 
