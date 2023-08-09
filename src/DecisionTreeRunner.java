@@ -86,25 +86,24 @@ public class DecisionTreeRunner {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.WHITE);
+        treePanel.setBackground(Color.DARK_GRAY); // ajout test
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2)); // Créer une disposition en deux colonnes
-        contentPanel.add(treePanel);
-        contentPanel.add(scrollPane);
+        contentPanel.add(treePanel); // ajout du treePanel
+        contentPanel.add(scrollPane); // ajout du scrollPane
 
         mainPanel.add(contentPanel, BorderLayout.CENTER);
         frame.add(mainPanel);
 
         // Personnaliser le texte de la barre de titre
-        JLabel titleLabel = new JLabel("Arbre de décision APHM");
+        JLabel titleLabel = new JLabel("Arbre de décision APHM"); // arbre de décision aphm
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
         // ajout du logo
         // Chargement de l'image du logo
-        ImageIcon logoIcon = new ImageIcon("images/logo.png"); // "logo.png" à remplacer par le nom du fichier png
-        // à modifier pour adpater le logo
+        ImageIcon logoIcon = new ImageIcon("logo.png"); // Assurez-vous que "logo.png" est dans le même répertoire que le fichier Java
 
         // Création du label pour afficher le logo
         JLabel logoLabel = new JLabel(logoIcon);
@@ -118,7 +117,7 @@ public class DecisionTreeRunner {
         // Création du panel pour la barre supérieure
         JPanel topBarPanel = new JPanel(new BorderLayout());
         topBarPanel.setBackground(Color.BLACK);
-        topBarPanel.add(logoLabel, BorderLayout.WEST);
+        topBarPanel.add(logoLabel, BorderLayout.WEST); // Ajout du logo à gauche
         topBarPanel.add(titleLabel, BorderLayout.CENTER);
 
         frame.add(topBarPanel, BorderLayout.NORTH);
