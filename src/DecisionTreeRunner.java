@@ -7,13 +7,11 @@ import java.util.List;
 
 public class DecisionTreeRunner {
     DecisionTree tree;
-
     public DecisionTreeRunner() {
         tree = new DecisionTree();
     }
 
     public void run() {
-
 
         // Personnaliser l'apparence de la barre de titre
         try {
@@ -28,7 +26,6 @@ public class DecisionTreeRunner {
         frame.getContentPane().setBackground(Color.BLACK);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
-
         DecisionTreeNode currentNode = tree.getRoot();
         List<String> questionList = new ArrayList<>();
 
@@ -86,7 +83,7 @@ public class DecisionTreeRunner {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.DARK_GRAY); // ajout test
+        treePanel.setBackground(Color.LIGHT_GRAY); // ajout test
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2)); // Créer une disposition en deux colonnes
         contentPanel.add(treePanel); // ajout du treePanel
@@ -105,23 +102,22 @@ public class DecisionTreeRunner {
         // Chargement de l'image du logo
         ImageIcon logoIcon = new ImageIcon("logo.png"); // Assurez-vous que "logo.png" est dans le même répertoire que le fichier Java
 
-        // Création du label pour afficher le logo
+// Création du label pour afficher le logo
         JLabel logoLabel = new JLabel(logoIcon);
 
-        // Modification de la propriété du label existant pour le titre
+// Modification de la propriété du label existant pour le titre
         titleLabel.setText("Arbre de décision APHM");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // Création du panel pour la barre supérieure
+// Création du panel pour la barre supérieure
         JPanel topBarPanel = new JPanel(new BorderLayout());
         topBarPanel.setBackground(Color.BLACK);
         topBarPanel.add(logoLabel, BorderLayout.WEST); // Ajout du logo à gauche
         topBarPanel.add(titleLabel, BorderLayout.CENTER);
 
         frame.add(topBarPanel, BorderLayout.NORTH);
-
         frame.setVisible(true);
     }
 
@@ -131,7 +127,7 @@ public class DecisionTreeRunner {
 }
 
 class DecisionTreePanel extends JPanel {
-    private static final int NODE_SIZE = 40; // Taille des nœuds
+    private static final int NODE_SIZE = 40; // Taille des nodes
     private static final int LEVEL_HEIGHT = 100; // Espacement vertical entre les niveaux
     private static final int TEXT_RECTANGLE_WIDTH = 160; // Largeur du rectangle de fond
     private static final int TEXT_RECTANGLE_HEIGHT = 60; // Hauteur du rectangle de fond
@@ -144,12 +140,12 @@ class DecisionTreePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         // Dessiner les nœuds et les liens de l'arbre de décision
         drawTree(tree.getRoot(), getWidth() / 2, 50, 200, 0, g);
     }
     // Dessiner l'arbre de décision
     private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, int level, Graphics g) {
+
         Color darkGreen = new Color(0, 100, 0); // Vert foncé
         Color darkRed = new Color(139, 0, 0); // Pour un rouge vif : new Color(255, 0 , 0)
 
@@ -161,7 +157,6 @@ class DecisionTreePanel extends JPanel {
         } else {
             g.setColor(darkGreen); // Utiliser le vert foncé pour les noeuds suivants
         }
-
 
         int textX = x - TEXT_RECTANGLE_WIDTH / 2;
         int textY = y - TEXT_RECTANGLE_HEIGHT / 2;
