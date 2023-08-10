@@ -122,9 +122,6 @@ public class DecisionTreeRunner {
 
         frame.add(topBarPanel, BorderLayout.NORTH);
 
-
-
-
         frame.setVisible(true);
     }
 
