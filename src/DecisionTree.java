@@ -35,16 +35,11 @@ public class DecisionTree {
         DecisionTreeNode nodeZIImprim = new DecisionTreeNode("Z_I_IMPRIM"); // Z_I_IMPRIM
         DecisionTreeNode nodeZMScanMedic = new DecisionTreeNode("Z_M_SCAN_MEDIC"); // Z_M_SCAN_MEDIC
 
-        // Hauteur 4
          // R : WIFI ou FILAIRE
 
-        // Hauteur 5
         DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1"); // Environnement, left leaf
         DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2"); // Environnement, right leaf
 
-
-
-        // Hauteur 6
         root = nodeApplicationEquipment;
         root.addChild("Serveur", nodeServer); // Serveur
         root.addChild("Terminal", nodeTerminal); // Terminal
@@ -89,6 +84,22 @@ public class DecisionTree {
         nodeEnvironnement2.addChild("Recette2", nodeRecette2);
         nodeEnvironnement2.addChild("Formation2", nodeFormation2);
         nodeEnvironnement2.addChild("Test2", nodeTest2);
+//////////////////////////////////////////////////////////////////////////////////////////////////
+        // node after Environnement2
+        DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE");
+        DecisionTreeNode nodeZLTDEV = new DecisionTreeNode("Z_LTR_DEV");
+        // DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE");
+        DecisionTreeNode nodeZLTRRECETTE = new DecisionTreeNode("Z_LTR_RECETTE");
+        DecisionTreeNode nodeZLTRFORM = new DecisionTreeNode("Z_LTR_FORM");
+        DecisionTreeNode nodeZLTRTEST = new DecisionTreeNode("Z_LTR_TEST");
+
+        nodeIntegration2.addChild("Z_LTR_RECE", nodeZLTRREC);
+        nodeDeveloppement2.addChild("Z_LTR_DEV", nodeZLTDEV);
+        // nodeProduction2.addChild("Maitrisée par la DSI APHM", nodeDSI2);
+        nodeRecette2.addChild("Z_LTR_RECETTE", nodeZLTRRECETTE);
+        nodeFormation2.addChild("Z_LTR_FORM", nodeZLTRFORM);
+        nodeTest2.addChild("Z_LTR_TEST", nodeZLTRTEST);
+
 
 
 
@@ -116,60 +127,74 @@ public class DecisionTree {
         nodeZLSETEST.addChild("Z_LSE_TEST", nodeZLSETEST);
         nodeProduction1.addChild("Exigence réglementaire", nodeExigence);
 
-        // Continuer à ajouter les noeuds à partir de la hauteur 6 de l'arbre
+        // Nodes after Exigence réglementaire
         DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE"); // Noeud SIE
         DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV"); // Noeud SIIV
         DecisionTreeNode nodeHDS = new DecisionTreeNode("HDS"); // Noeud HDS
         DecisionTreeNode nodeDiffusionRestreinte = new DecisionTreeNode("Diffusion Restreinte"); // Noeud Diffusion Restreinte
-
-
         DecisionTreeNode nodeNon1 = new DecisionTreeNode("Non1"); // Premier noeud "Non"
-        nodeExigence.addChild("Non1", nodeNon1); // Non node
         DecisionTreeNode nodeDSI1 = new DecisionTreeNode("Maitrisée par la DSI1 APHM");
+
+        nodeExigence.addChild("Non1", nodeNon1); // Non node
         nodeNon1.addChild("Maitrisée par la DSI1 APHM", nodeDSI1); // en cours de modification actuelle
 
-        DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM"); // pas encore modifié
-        nodeNon1.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
+        // ajout test
+        nodeExigence.addChild("SIE", nodeSIE); // SIE node
+        nodeExigence.addChild("SIIV", nodeSIIV); // SIIV node
+        nodeExigence.addChild("HDS", nodeHDS); // HDS node
+        nodeExigence.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Diffusion Restreinte node
 
+        // ajout en cours
+        DecisionTreeNode nodeZLSESIE = new DecisionTreeNode("Z_LSE_SIE");
+        DecisionTreeNode nodeZLSESIIV = new DecisionTreeNode("Z_LSE_SIIV");
+        DecisionTreeNode nodeZLSEHDS = new DecisionTreeNode("Z_LSE_HDS");
+        DecisionTreeNode nodeDiffusion = new DecisionTreeNode("Z_LSE_DR");
+
+        nodeSIE.addChild("Z_LSE_SIE", nodeZLSESIE);
+        nodeSIIV.addChild("Z_LSE_SIIV", nodeZLSESIIV);
+        nodeHDS.addChild("Z_LSE_HDS", nodeZLSEHDS);
+        nodeDiffusionRestreinte.addChild("Z_LSE_DR", nodeDiffusion);
+
+
+        DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM"); // pas encore modifié
         DecisionTreeNode nodeNon2 = new DecisionTreeNode("Non2");
         DecisionTreeNode nodeOui1 = new DecisionTreeNode("Oui1"); // pas encore modifié
+
         nodeDSI1.addChild("Non2", nodeNon2);
         nodeDSI1.addChild("Oui1", nodeOui1); // pas encore modifié
 
-
-        /**
-         * TODO : Non nodes here
-         */
-        /**
-         * Nodes after Poste admin
-         */
-        // for node Poste admin and more
-        DecisionTreeNode nodeAdmin = new DecisionTreeNode("Poste admin");
-
+        // for node Maitrisée par la DSI APHM 2 -nodeNon3
+        DecisionTreeNode nodeOui2 = new DecisionTreeNode("Oui2"); // pas encore modifié
+        DecisionTreeNode nodeNon3 = new DecisionTreeNode("Non3");
         DecisionTreeNode nodeCategory = new DecisionTreeNode("Catégorie d'usage");
-
         DecisionTreeNode nodeZLTRDSI = new DecisionTreeNode("Z_LTR_DSI");
-
         DecisionTreeNode nodeMedical = new DecisionTreeNode("Médical");
         DecisionTreeNode nodeAd = new DecisionTreeNode("Administratif");
         DecisionTreeNode nodeDSICategory = new DecisionTreeNode("DSI");
-
         DecisionTreeNode nodeZLTRMEDI = new DecisionTreeNode("Z_LTR_MEDI");
         DecisionTreeNode nodeZLTRADMI = new DecisionTreeNode("Z_LTR_ADMI");
         DecisionTreeNode nodeZLTRDSICategory = new DecisionTreeNode("Z_LTR_DSI");
 
+        nodeNon3.addChild("Catégorie d'usage", nodeCategory);
+
         nodeCategory.addChild("Médical", nodeMedical);
         nodeCategory.addChild("Administratif", nodeAd);
-        nodeCategory.addChild("Médical", nodeMedical);
+        nodeCategory.addChild("DSI", nodeDSICategory); // modifié
 
         nodeMedical.addChild("Z_LTR_MEDI", nodeZLTRMEDI);
         nodeAd.addChild("Z_LTR_ADMI", nodeZLTRADMI);
         nodeDSICategory.addChild("Z_LTR_DSI", nodeZLTRDSICategory);
-        // for node Maitrisée par la DSI APHM 2 -nodeNon3
-        DecisionTreeNode nodeOui2 = new DecisionTreeNode("Oui2"); // pas encore modifié
-        DecisionTreeNode nodeNon3 = new DecisionTreeNode("Non3");
-        nodeDSI2.addChild("Oui2", nodeOui2); // pas encore modifié
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        // for node Poste admin and more
+        DecisionTreeNode nodeAdmin = new DecisionTreeNode("Poste admin");
         nodeAdmin.addChild("Non3", nodeNon3);
+
+        nodeDSI2.addChild("Oui2", nodeOui2); // pas encore modifié
+        nodeOui2.addChild("Poste admin", nodeAdmin);
+
+
+
+
 
         // for node Maitrisée par la DSI APHM 2 - nodeNon4
         DecisionTreeNode nodeOui3 = new DecisionTreeNode("Oui3"); // pas encore modifié
@@ -204,36 +229,36 @@ public class DecisionTree {
          * TODO : Non nodes end
          */
 
-        nodeExigence.addChild("SIE", nodeSIE); // SIE node
-        nodeExigence.addChild("SIIV", nodeSIIV); // SIIV node
-        nodeExigence.addChild("HDS", nodeHDS); // HDS node
-        nodeExigence.addChild("Diffusion Restreinte", nodeDiffusionRestreinte); // Diffusion Restreinte node
 
-
-
+        // Nodes after Oui1
         DecisionTreeNode nodeCriticite = new DecisionTreeNode("Criticité (FASSI)");
-        nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
 
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
         DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante");
         DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique");
         DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
 
-        nodeCriticite.addChild("Faible", nodeFaible);
-        nodeCriticite.addChild("Importante", nodeImportante);
-        nodeCriticite.addChild("Critique", nodeCritique);
-        nodeCriticite.addChild("Vitale", nodeVitale);
-
-        // A modifier : pas un noeud final
         DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE");
         DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
         DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
         DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
 
-        nodeYSEFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // A modifier : pas un noeud final
-        nodeYSECritique.addChild("Z_YSE_Critique", nodeYSECritique);
-        nodeYSEImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
-        nodeYSEVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
+        nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
+
+        nodeCriticite.addChild("Faible", nodeFaible);
+        nodeCriticite.addChild("Importante", nodeImportante);
+        nodeCriticite.addChild("Critique", nodeCritique);
+        nodeCriticite.addChild("Vitale", nodeVitale);
+
+        nodeFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // A modifier : pas un noeud final
+        nodeCritique.addChild("Z_YSE_Critique", nodeYSECritique);
+        nodeImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
+        nodeVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
+
+
+
+
+
 
         // for node Envrionnement2
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
