@@ -101,8 +101,20 @@ public class DecisionTreeRunner {
         /**
          * TODO : add logo
          */
-        ImageIcon logoIcon = new ImageIcon("logo.png");
-        JLabel logoLabel = new JLabel(logoIcon);
+        // Load the original logo image
+        ImageIcon originalLogoIcon = new ImageIcon(getClass().getResource("/logo.png"));
+        // Define the desired width and height for the scaled logo
+        int desiredWidth = 150; // Adjust this value to your preference
+        int desiredHeight = 80; // Adjust this value to your preference
+        // Scale the original logo image to the desired size
+        Image scaledImage = originalLogoIcon.getImage().getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
+        // Create a new ImageIcon with the scaled image
+        ImageIcon scaledLogoIcon = new ImageIcon(scaledImage);
+        // Create a JLabel with the scaled logo ImageIcon
+        JLabel logoLabel = new JLabel(scaledLogoIcon);
+
+        // ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo.png"));
+        // JLabel logoLabel = new JLabel(logoIcon);
 
 
         titleLabel.setText("Arbre de décision APHM");
