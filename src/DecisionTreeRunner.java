@@ -83,7 +83,7 @@ public class DecisionTreeRunner {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.LIGHT_GRAY);
+        treePanel.setBackground(Color.DARK_GRAY);
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
         contentPanel.add(treePanel); // ajout du treePanel
