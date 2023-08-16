@@ -1,13 +1,11 @@
 import java.util.HashMap;
-
 /**
- * Nodes Class
+ * DecisionTreeNode Class
  */
 public class DecisionTreeNode {
     private String input;
-    private HashMap<String, DecisionTreeNode> children; // hashmap à modifier avec linked list
+    private HashMap<String, DecisionTreeNode> children;
     private String nameNode;
-
     /**
      * Constructor
      * @param message
@@ -21,15 +19,13 @@ public class DecisionTreeNode {
     public String getNameNode() { return this.nameNode; }
 
     /**
-     * Method to get the result of the selected node
+     * Method to get the result of the input
      * @return input
      */
-    public String getInput() {
-        return this.input;
-    }
-    // Récupérer noeud choisis par l'utilisateur
+    public String getInput() { return this.input; }
+
     /**
-     * Method to get the child
+     * Method to get the child node
      * @param decision
      * @return
      */
@@ -38,7 +34,7 @@ public class DecisionTreeNode {
     }
 
     /**
-     * Method to add a child
+     * Method to add a child node
      * @param decision
      * @param child
      */
@@ -47,13 +43,13 @@ public class DecisionTreeNode {
     }
 
     /**
-     * Method to detect if it's the correct node
+     * Method to detect if it is the correct leaf
      * @return
      */
     public boolean isLeaf() { return this.children.isEmpty(); }
 
     /**
-     * Method to get the correct child
+     * Method to get the children
      * @return
      */
     public HashMap<String, DecisionTreeNode> getChildren() {
