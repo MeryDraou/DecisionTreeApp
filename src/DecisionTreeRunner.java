@@ -124,6 +124,7 @@ public class DecisionTreeRunner {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new DecisionTreeRunner().run());
     }
+
 }
 
 class DecisionTreePanel extends JPanel {
