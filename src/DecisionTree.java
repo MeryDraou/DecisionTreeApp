@@ -94,7 +94,7 @@ public class DecisionTree {
         nodeEnvironnement1.addChild("Integration1", nodeIntegration1);
         nodeEnvironnement1.addChild("Developpement1", nodeDeveloppement1);
         nodeEnvironnement1.addChild("Production1", nodeProduction1);
-        nodeEnvironnement1.addChild("Recette1", nodeRecette1); /
+        nodeEnvironnement1.addChild("Recette1", nodeRecette1);
         nodeEnvironnement1.addChild("Formation1", nodeFormation1);
         nodeEnvironnement1.addChild("Test1", nodeTest1);
 
