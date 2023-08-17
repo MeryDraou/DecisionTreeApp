@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 /**
  * DecisionTree class
  */
@@ -220,9 +222,10 @@ public class DecisionTree {
      * Method for selecting a choice
      */
     public void decide() {
+        Scanner scanner = new Scanner(System.in); // Define scanner here
 
-        Scanner scanner = new Scanner(System.in);
         DecisionTreeNode currentNode = root;
+
         while (!currentNode.isLeaf()) {
             System.out.println(currentNode.getInput());
             String choice = scanner.nextLine();
@@ -230,14 +233,35 @@ public class DecisionTree {
             if (currentNode == null) {
                 System.out.println("Choix non valide. Veuillez recommencer.");
                 currentNode = root;
-            }
-            else {
+            } else {
                 System.out.println("Choix valide. Veuillez continuer.");
                 addPathNodes(choice);
             }
         }
-        System.out.println("Noeud final atteint : " + currentNode.getInput()); // final node
+        // ajout
+        if (currentNode.getInput().equals("Z_YSE_FAIBLE")) {
+            System.out.println("Enter VLAN ID:");
+            String selectedVlan = scanner.nextLine();
+
+            String csvFilePath = "vlan_data.csv"; // Replace with your CSV file path
+
+            try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] columns = line.split(",");
+                    if (columns.length >= 2 && columns[1].equals(selectedVlan)) {
+                        for (String column : columns) {
+                            System.out.print(column + "\t");
+                        }
+                        System.out.println();
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Error reading CSV file.");
+            }
+        }
     }
+
 
     /**
      * Method to get the root
