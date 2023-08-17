@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 /**
  * DecisionTree class
  */
@@ -23,26 +20,23 @@ public class DecisionTree {
 
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
         DecisionTreeNode nodeLocation = new DecisionTreeNode("Localisation géographique");
-
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
         DecisionTreeNode nodeTerminal = new DecisionTreeNode("Terminal client");
         DecisionTreeNode nodePrinter = new DecisionTreeNode("I : Imprimante");
         DecisionTreeNode nodeScanner = new DecisionTreeNode("M : Scanneur médical");
-
         DecisionTreeNode nodeExposition = new DecisionTreeNode("Exposition");
         DecisionTreeNode nodeReseau = new DecisionTreeNode("Réseau");
         DecisionTreeNode nodeZIImprim = new DecisionTreeNode("Z_I_IMPRIM");
         DecisionTreeNode nodeZMScanMedic = new DecisionTreeNode("Z_M_SCAN_MEDIC");
-
         DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1");
         DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2");
 
         root = nodeApplicationEquipment;
+
         root.addChild("Serveur", nodeServer);
         root.addChild("Terminal", nodeTerminal);
         root.addChild("Imprimante", nodePrinter);
         root.addChild("Scanneur", nodeScanner);
-
         nodeServer.addChild("Exposition", nodeExposition);
         nodeTerminal.addChild("Réseau", nodeReseau);
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim);
@@ -53,7 +47,6 @@ public class DecisionTree {
 
         DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE");
         nodeReseau.addChild("R : WIFI ou FILAIRE", nodeR);
-
         nodeE.addChild("Environnement1", nodeEnvironnement1);
         nodeR.addChild("Environnement2", nodeEnvironnement2);
 
@@ -71,7 +64,7 @@ public class DecisionTree {
         DecisionTreeNode nodeFormation2 = new DecisionTreeNode("Formation2");
         DecisionTreeNode nodeTest2 = new DecisionTreeNode("Test2");
 
-        // environnement2 here
+        // children of environnement2
         nodeEnvironnement2.addChild("Integration2", nodeIntegration2);
         nodeEnvironnement2.addChild("Developpement2", nodeDeveloppement2);
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
@@ -167,13 +160,13 @@ public class DecisionTree {
         // for node "Poste admin" and more
         DecisionTreeNode nodeAdmin = new DecisionTreeNode("Poste admin");
         nodeAdmin.addChild("Non3", nodeNon3);
-        nodeDSI2.addChild("Oui2", nodeOui2); // pas encore modifié
+        nodeDSI2.addChild("Oui2", nodeOui2);
         nodeOui2.addChild("Poste admin", nodeAdmin);
 
         // for node Maitrisée par la DSI APHM 2 - nodeNon4
-        DecisionTreeNode nodeOui3 = new DecisionTreeNode("Oui3"); // pas encore modifié
+        DecisionTreeNode nodeOui3 = new DecisionTreeNode("Oui3");
         DecisionTreeNode nodeNon4 = new DecisionTreeNode("Non4");
-        nodeAdmin.addChild("Oui3", nodeOui3); // pas encore modifié
+        nodeAdmin.addChild("Oui3", nodeOui3);
         nodeDSI2.addChild("Non4", nodeNon4);
 
         DecisionTreeNode nodeType = new DecisionTreeNode("Type d'actif Non Maitrisé");
@@ -202,17 +195,17 @@ public class DecisionTree {
         DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
         DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
         DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
-
+        // add final node
         nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
         nodeCriticite.addChild("Faible", nodeFaible);
         nodeCriticite.addChild("Importante", nodeImportante);
         nodeCriticite.addChild("Critique", nodeCritique);
         nodeCriticite.addChild("Vitale", nodeVitale);
-        nodeFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // A modifier : pas un noeud final
+        nodeFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible);
         nodeCritique.addChild("Z_YSE_Critique", nodeYSECritique);
         nodeImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
         nodeVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
-        // for node Envrionnement2
+        // for node Environnement2
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
         nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
 
@@ -222,46 +215,24 @@ public class DecisionTree {
      * Method for selecting a choice
      */
     public void decide() {
-        Scanner scanner = new Scanner(System.in); // Define scanner here
 
+        Scanner scanner = new Scanner(System.in);
         DecisionTreeNode currentNode = root;
-
         while (!currentNode.isLeaf()) {
             System.out.println(currentNode.getInput());
             String choice = scanner.nextLine();
             currentNode = currentNode.getChild(choice);
             if (currentNode == null) {
-                System.out.println("Choix non valide. Veuillez recommencer.");
+                System.out.println("Choix non valide. Veuillez recommencer."); // retry
                 currentNode = root;
-            } else {
-                System.out.println("Choix valide. Veuillez continuer.");
+            }
+            else {
+                System.out.println("Choix valide. Veuillez continuer."); // continue
                 addPathNodes(choice);
             }
         }
-        // ajout
-        if (currentNode.getInput().equals("Z_YSE_FAIBLE")) {
-            System.out.println("Enter VLAN ID:");
-            String selectedVlan = scanner.nextLine();
-
-            String csvFilePath = "vlan_data.csv"; // Replace with your CSV file path
-
-            try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] columns = line.split(",");
-                    if (columns.length >= 2 && columns[1].equals(selectedVlan)) {
-                        for (String column : columns) {
-                            System.out.print(column + "\t");
-                        }
-                        System.out.println();
-                    }
-                }
-            } catch (IOException e) {
-                System.out.println("Error reading CSV file.");
-            }
-        }
+        System.out.println("Noeud final atteint : " + currentNode.getInput()); // final node
     }
-
 
     /**
      * Method to get the root

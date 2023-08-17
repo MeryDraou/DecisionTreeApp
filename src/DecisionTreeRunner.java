@@ -59,7 +59,6 @@ public class DecisionTreeRunner {
             rowData[i][0] = questionList.get(i);
         }
         Object[] columnNames = {"Vos choix sélectionnés"};
-
         System.out.println("PATH NODES");
         tree.getPathNodes().stream().forEach(System.out::println);
         JTable questionTable = new JTable(new DefaultTableModel(rowData, columnNames)) {
@@ -83,11 +82,11 @@ public class DecisionTreeRunner {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.DARK_GRAY);
+        treePanel.setBackground(Color.LIGHT_GRAY); // background of the decision tree
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
-        contentPanel.add(treePanel); // ajout du treePanel
-        contentPanel.add(scrollPane); // ajout du scrollPane
+        contentPanel.add(treePanel);
+        contentPanel.add(scrollPane);
 
         mainPanel.add(contentPanel, BorderLayout.CENTER);
         frame.add(mainPanel);
@@ -116,15 +115,14 @@ public class DecisionTreeRunner {
         // ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo.png"));
         // JLabel logoLabel = new JLabel(logoIcon);
 
-
-        titleLabel.setText("ARBRE DE DECISION APHM");
+        titleLabel.setText("ARBRE DE DECISION APHM"); // title label
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         JPanel topBarPanel = new JPanel(new BorderLayout());
         topBarPanel.setBackground(Color.BLACK);
-        topBarPanel.add(logoLabel, BorderLayout.WEST); // Ajout du logo à gauche
+        topBarPanel.add(logoLabel, BorderLayout.WEST);
         topBarPanel.add(titleLabel, BorderLayout.CENTER);
 
         frame.add(topBarPanel, BorderLayout.NORTH);
@@ -167,8 +165,8 @@ class DecisionTreePanel extends JPanel {
      * @param g
      */
     private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, int level, Graphics g) {
-        Color darkGreen = new Color(0, 100, 0); // Vert foncé
-        Color darkRed = new Color(139, 0, 0); // Pour un rouge vif : new Color(255, 0 , 0)
+        Color darkGreen = new Color(0, 100, 0);
+        Color darkRed = new Color(139, 0, 0);
 
         if (node.getNameNode().equals("Application ou équipement")) {
             g.setColor(darkRed);
