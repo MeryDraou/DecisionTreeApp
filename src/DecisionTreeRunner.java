@@ -117,7 +117,7 @@ public class DecisionTreeRunner {
         // JLabel logoLabel = new JLabel(logoIcon);
 
 
-        titleLabel.setText("Arbre de décision APHM");
+        titleLabel.setText("ARBRE DE DECISION APHM");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
