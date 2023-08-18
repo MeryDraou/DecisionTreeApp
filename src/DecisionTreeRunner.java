@@ -90,7 +90,7 @@ public class DecisionTreeRunner {
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.LIGHT_GRAY); // background of the decision tree
+        treePanel.setBackground(Color.DARK_GRAY); // background of the decision tree
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
         contentPanel.add(treePanel);
@@ -124,7 +124,9 @@ public class DecisionTreeRunner {
         // JLabel logoLabel = new JLabel(logoIcon);
 
         // test excel file
-        // Read the Excel file
+        /**
+         * For reading the excel file vlan_data
+         */
         try {
             List<MachineInfo> machineInfoList = ExcelReader.readExcel("vlan_data.xlsx");
 
@@ -178,7 +180,7 @@ class DecisionTreePanel extends JPanel {
     }
 
     /**
-     * Draw the decsion tree
+     * Draw the decision tree
      * @param node
      * @param x
      * @param y

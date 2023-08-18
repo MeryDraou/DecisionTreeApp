@@ -208,12 +208,9 @@ public class DecisionTree {
         // for node Environnement2
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
         nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
-
         /**
-         * ajout ici des zones vlan avec numéro à sélectionner
+         * TODO : add vlan zones with number associated
          */
-
-
 
     }
 
