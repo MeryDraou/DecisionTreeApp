@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,6 +122,20 @@ public class DecisionTreeRunner {
 
         // ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo.png"));
         // JLabel logoLabel = new JLabel(logoIcon);
+
+        // test excel file
+        // Read the Excel file
+        try {
+            List<MachineInfo> machineInfoList = ExcelReader.readExcel("vlan_data.xlsx");
+
+            for (MachineInfo machineInfo : machineInfoList) {
+                JOptionPane.showMessageDialog(frame,
+                        "IP Address: " + machineInfo.getIp() + "\nVLAN ID: " + machineInfo.getVlanId());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // end of test excel file
 
         titleLabel.setText("ARBRE DE DECISION APHM"); // title label
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
