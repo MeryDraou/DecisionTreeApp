@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * DecisionTree class
+ * DecisionTree Class
  */
 public class DecisionTree {
     DecisionTreeNode root;
@@ -14,7 +14,7 @@ public class DecisionTree {
     }
 
     /**
-     * Constructor
+     * Constructor of the DecisionTree Class
      */
     public DecisionTree() {
 
