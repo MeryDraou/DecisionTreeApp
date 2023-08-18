@@ -4,7 +4,6 @@
  * Author : Meryem DRAOU
  *
  */
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -28,7 +27,6 @@ public class DecisionTreeRunner {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -42,7 +40,7 @@ public class DecisionTreeRunner {
             String userInput = (String) JOptionPane.showInputDialog(
                     frame,
                     currentNode.getInput(),
-                    "Arbre De Décision APHM",
+                    "Arbre de décision APHM",
                     JOptionPane.QUESTION_MESSAGE,
                     null,
                     currentNode.getChildren().keySet().toArray(),
@@ -66,7 +64,7 @@ public class DecisionTreeRunner {
         for (int i = 0; i < questionList.size(); i++) {
             rowData[i][0] = questionList.get(i);
         }
-        Object[] columnNames = {"Vos choix sélectionnés"};
+        Object[] columnNames = {"VOS CHOIX SELECTIONNÉS"};
         System.out.println("PATH NODES");
         tree.getPathNodes().stream().forEach(System.out::println);
         JTable questionTable = new JTable(new DefaultTableModel(rowData, columnNames)) {
@@ -76,21 +74,21 @@ public class DecisionTreeRunner {
             }
         };
 
-        questionTable.setBackground(Color.BLACK);
+        questionTable.setBackground(Color.LIGHT_GRAY);
         questionTable.setForeground(new Color(255, 140, 0));
         questionTable.setRowHeight(40);
         questionTable.setFont(new Font("Arial", Font.PLAIN, 18));
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        centerRenderer.setForeground(new Color(255, 140, 0));
+        centerRenderer.setForeground(new Color(0, 0, 0)); // color black for the tables writing
         questionTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
 
         JScrollPane scrollPane = new JScrollPane(questionTable);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.DARK_GRAY); // background of the decision tree
+        treePanel.setBackground(Color.LIGHT_GRAY); // color LIGHT_GRAY of the background of the decision tree
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
         contentPanel.add(treePanel);
@@ -113,7 +111,7 @@ public class DecisionTreeRunner {
         // Define the desired width and height for the scaled logo
         int desiredWidth = 150; // Adjust this value to your preference
         int desiredHeight = 80; // Adjust this value to your preference
-        // Scale the original logo image to the desired size
+        // Scale the original logo image to the desire size
         Image scaledImage = originalLogoIcon.getImage().getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
         // Create a new ImageIcon with the scaled image
         ImageIcon scaledLogoIcon = new ImageIcon(scaledImage);
@@ -139,7 +137,7 @@ public class DecisionTreeRunner {
         }
         // end of test excel file
 
-        titleLabel.setText("ARBRE DE DECISION APHM"); // title label
+        titleLabel.setText("ARBRE DE DÉCISION APHM"); // title label
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);

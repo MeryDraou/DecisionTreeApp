@@ -29,18 +29,14 @@ public class DecisionTreeNode {
      * @param decision
      * @return
      */
-    public DecisionTreeNode getChild(String decision) {
-        return this.children.get(decision);
-    }
+    public DecisionTreeNode getChild(String decision) { return this.children.get(decision); }
 
     /**
      * Method to add a child node
      * @param decision
      * @param child
      */
-    public void addChild(String decision, DecisionTreeNode child) {
-        this.children.put(decision, child);
-    }
+    public void addChild(String decision, DecisionTreeNode child) { this.children.put(decision, child); }
 
     /**
      * Method to detect if it is the correct leaf
@@ -52,8 +48,6 @@ public class DecisionTreeNode {
      * Method to get the children
      * @return
      */
-    public HashMap<String, DecisionTreeNode> getChildren() {
-        return this.children;
-    }
+    public HashMap<String, DecisionTreeNode> getChildren() { return this.children; }
 
 }

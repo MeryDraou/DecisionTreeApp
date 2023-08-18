@@ -64,7 +64,7 @@ public class DecisionTree {
         DecisionTreeNode nodeFormation2 = new DecisionTreeNode("Formation2");
         DecisionTreeNode nodeTest2 = new DecisionTreeNode("Test2");
 
-        // children of environnement2
+        // children for Environnement2
         nodeEnvironnement2.addChild("Integration2", nodeIntegration2);
         nodeEnvironnement2.addChild("Developpement2", nodeDeveloppement2);
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
@@ -209,16 +209,14 @@ public class DecisionTree {
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
         nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
         /**
-         * TODO : add vlan zones with number associated
+         * TODO : add here the vlan with zones and the zones numbers
          */
-
     }
 
     /**
      * Method for selecting a choice
      */
     public void decide() {
-
         Scanner scanner = new Scanner(System.in);
         DecisionTreeNode currentNode = root;
         while (!currentNode.isLeaf()) {

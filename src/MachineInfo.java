@@ -1,7 +1,6 @@
 public class MachineInfo {
     private String ip;
     private int vlanId;
-    // Other properties and setter methods
 
     public String getIp() {
         return ip;
@@ -18,6 +17,5 @@ public class MachineInfo {
     public void setVlanId(int vlanId) {
         this.vlanId = vlanId;
     }
-
-    // Other getter and setter methods for additional properties
+    // other getter and setter methods for additional properties
 }
