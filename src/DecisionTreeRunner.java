@@ -12,13 +12,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * DecisionTreeRunner Class
  */
 public class DecisionTreeRunner {
     DecisionTree tree;
     public DecisionTreeRunner() {
-        tree = new DecisionTree();
+        try {
+            tree = new DecisionTree();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void run() {
@@ -35,6 +42,8 @@ public class DecisionTreeRunner {
         JPanel mainPanel = new JPanel(new BorderLayout());
         DecisionTreeNode currentNode = tree.getRoot();
         List<String> questionList = new ArrayList<>();
+
+
 
         while (!currentNode.isLeaf()) {
             String userInput = (String) JOptionPane.showInputDialog(
@@ -93,7 +102,6 @@ public class DecisionTreeRunner {
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
         contentPanel.add(treePanel);
         contentPanel.add(scrollPane);
-
         mainPanel.add(contentPanel, BorderLayout.CENTER);
         frame.add(mainPanel);
 
@@ -121,21 +129,7 @@ public class DecisionTreeRunner {
         // ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo.png"));
         // JLabel logoLabel = new JLabel(logoIcon);
 
-        // test excel file
-        /**
-         * For reading the excel file vlan_data
-         */
-        try {
-            List<MachineInfo> machineInfoList = ExcelReader.readExcel("vlan_data.xlsx");
 
-            for (MachineInfo machineInfo : machineInfoList) {
-                JOptionPane.showMessageDialog(frame,
-                        "IP Address: " + machineInfo.getIp() + "\nVLAN ID: " + machineInfo.getVlanId());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // end of test excel file
 
         titleLabel.setText("ARBRE DE DÉCISION APHM"); // title label
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));

@@ -1,5 +1,16 @@
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
+
 /**
  * DecisionTree Class
  */
@@ -16,7 +27,7 @@ public class DecisionTree {
     /**
      * Constructor of the DecisionTree Class
      */
-    public DecisionTree() {
+    public DecisionTree() throws IOException {
 
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
         DecisionTreeNode nodeLocation = new DecisionTreeNode("Localisation géographique");
@@ -195,6 +206,16 @@ public class DecisionTree {
         DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
         DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
         DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
+        // vlan int
+        DecisionTreeNode vlanInt = new DecisionTreeNode("VLAN");
+        Set<String> vlanIntMap = readVlan().keySet();
+        for(String vlanId : vlanIntMap) {
+            vlanInt.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+        nodeZLSEINT.addChild("VLAN", vlanInt);
+
+
+
         // add final node
         nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
         nodeCriticite.addChild("Faible", nodeFaible);
@@ -208,9 +229,64 @@ public class DecisionTree {
         // for node Environnement2
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
         nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
+
         /**
          * TODO : add here the vlan with zones and the zones numbers
          */
+
+    }
+
+    public static HashMap<String, Vlan> readVlan() throws IOException {
+
+        HashMap<String, Vlan> vlanType = new HashMap<>();
+        String cheminCourant = System.getProperty("user.dir");
+        System.out.println("Chemin courant : " + cheminCourant);
+        Reader in = new FileReader("data\\vlan_data.csv");
+        CSVParser csvParser = new CSVParser(in, CSVFormat.DEFAULT.withHeader());
+        Iterable<CSVRecord> records = csvParser.getRecords();
+        for (CSVRecord record : records) {
+            vlanType.put(record.get("vlan id"),
+                    new Vlan(record.get("\uFEFFip machine"),
+                            record.get("vlan id"),
+                            record.get("ip reseau"),
+                            record.get("passerelle"),
+                            record.get("masque"),
+                            record.get("DNS1"),
+                            record.get("DNS2"),
+                            record.get("NTP")));
+        }
+        return vlanType;
+
+    }
+    static class Vlan {
+
+        String ipMachine;
+        String vlanId;
+        String ipReseau;
+        String ipPasserelle;
+        String ipMasque;
+        String dns1;
+        String dns2;
+        String ntp;
+
+        public Vlan(String ipMachine,
+                    String vlanId,
+                    String ipReseau,
+                    String ipPasserelle,
+                    String ipMasque,
+                    String dns1,
+                    String dns2,
+                    String ntp) {
+            this.ipMachine = ipMachine;
+            this.vlanId = vlanId;
+            this.ipReseau = ipReseau;
+            this.ipPasserelle = ipPasserelle;
+            this.ipMasque = ipMasque;
+            this.dns1 = dns1;
+            this.dns2 = dns2;
+            this.ntp = ntp;
+        }
+
     }
 
     /**
@@ -242,5 +318,7 @@ public class DecisionTree {
     public DecisionTreeNode getRoot() {
         return this.root;
     }
+
+
 
 }
