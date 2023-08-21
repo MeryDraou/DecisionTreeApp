@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class DecisionTree {
     DecisionTreeNode root;
-    ArrayList<String> pathNodes = new ArrayList<>(); // list of decisions
+    ArrayList<String> pathNodes = new ArrayList<>();
     public void addPathNodes(String decision) {
         pathNodes.add(decision);
     }
@@ -37,7 +37,6 @@ public class DecisionTree {
         DecisionTreeNode nodeZMScanMedic = new DecisionTreeNode("Z_M_SCAN_MEDIC");
         DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1");
         DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2");
-
         root = nodeApplicationEquipment;
         root.addChild("Serveur", nodeServer);
         root.addChild("Terminal", nodeTerminal);
@@ -47,29 +46,24 @@ public class DecisionTree {
         nodeTerminal.addChild("Réseau", nodeReseau);
         nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim);
         nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic);
-
         DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne ou autre");
         nodeExposition.addChild("E : Interne ou autre", nodeE);
-
         DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE");
         nodeReseau.addChild("R : WIFI ou FILAIRE", nodeR);
         nodeE.addChild("Environnement1", nodeEnvironnement1);
         nodeR.addChild("Environnement2", nodeEnvironnement2);
-
         DecisionTreeNode nodeIntegration1 = new DecisionTreeNode("Integration1");
         DecisionTreeNode nodeDeveloppement1 = new DecisionTreeNode("Developpement1");
         DecisionTreeNode nodeProduction1 = new DecisionTreeNode("Production1");
         DecisionTreeNode nodeRecette1 = new DecisionTreeNode("Recette1");
         DecisionTreeNode nodeFormation1 = new DecisionTreeNode("Formation1");
         DecisionTreeNode nodeTest1 = new DecisionTreeNode("Test1");
-
         DecisionTreeNode nodeIntegration2 = new DecisionTreeNode("Integration2");
         DecisionTreeNode nodeDeveloppement2 = new DecisionTreeNode("Developpement2");
         DecisionTreeNode nodeProduction2 = new DecisionTreeNode("Production2");
         DecisionTreeNode nodeRecette2 = new DecisionTreeNode("Recette2");
         DecisionTreeNode nodeFormation2 = new DecisionTreeNode("Formation2");
         DecisionTreeNode nodeTest2 = new DecisionTreeNode("Test2");
-
         // children for Environnement2
         nodeEnvironnement2.addChild("Integration2", nodeIntegration2);
         nodeEnvironnement2.addChild("Developpement2", nodeDeveloppement2);
@@ -77,7 +71,6 @@ public class DecisionTree {
         nodeEnvironnement2.addChild("Recette2", nodeRecette2);
         nodeEnvironnement2.addChild("Formation2", nodeFormation2);
         nodeEnvironnement2.addChild("Test2", nodeTest2);
-
         // node after Environnement2
         DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE");
         DecisionTreeNode nodeZLTDEV = new DecisionTreeNode("Z_LTR_DEV");
@@ -91,14 +84,12 @@ public class DecisionTree {
         nodeRecette2.addChild("Z_LTR_RECETTE", nodeZLTRRECETTE);
         nodeFormation2.addChild("Z_LTR_FORM", nodeZLTRFORM);
         nodeTest2.addChild("Z_LTR_TEST", nodeZLTRTEST);
-
         nodeEnvironnement1.addChild("Integration1", nodeIntegration1);
         nodeEnvironnement1.addChild("Developpement1", nodeDeveloppement1);
         nodeEnvironnement1.addChild("Production1", nodeProduction1);
         nodeEnvironnement1.addChild("Recette1", nodeRecette1);
         nodeEnvironnement1.addChild("Formation1", nodeFormation1);
         nodeEnvironnement1.addChild("Test1", nodeTest1);
-
         DecisionTreeNode nodeZLSEINT = new DecisionTreeNode("Z_LSE_INT");
         nodeIntegration1.addChild("Z_LSE_INT", nodeZLSEINT);
         DecisionTreeNode nodeZLSEDEV = new DecisionTreeNode("Z_LSE_DEV");
@@ -112,35 +103,29 @@ public class DecisionTree {
         DecisionTreeNode nodeZLSETEST = new DecisionTreeNode("Z_LSE_TEST");
         nodeTest1.addChild("Z_LSE_TEST", nodeZLSETEST);
         nodeProduction1.addChild("Exigence réglementaire", nodeExigence);
-
         DecisionTreeNode nodeSIE = new DecisionTreeNode("SIE");
         DecisionTreeNode nodeSIIV = new DecisionTreeNode("SIIV");
         DecisionTreeNode nodeHDS = new DecisionTreeNode("HDS");
         DecisionTreeNode nodeDiffusionRestreinte = new DecisionTreeNode("Diffusion Restreinte");
         DecisionTreeNode nodeNon1 = new DecisionTreeNode("Non1");
         DecisionTreeNode nodeDSI1 = new DecisionTreeNode("Maitrisée par la DSI1 APHM");
-
         nodeExigence.addChild("Non1", nodeNon1);
         nodeNon1.addChild("Maitrisée par la DSI1 APHM", nodeDSI1);
         nodeExigence.addChild("SIE", nodeSIE);
         nodeExigence.addChild("SIIV", nodeSIIV);
         nodeExigence.addChild("HDS", nodeHDS);
         nodeExigence.addChild("Diffusion Restreinte", nodeDiffusionRestreinte);
-
         DecisionTreeNode nodeZLSESIE = new DecisionTreeNode("Z_LSE_SIE");
         DecisionTreeNode nodeZLSESIIV = new DecisionTreeNode("Z_LSE_SIIV");
         DecisionTreeNode nodeZLSEHDS = new DecisionTreeNode("Z_LSE_HDS");
         DecisionTreeNode nodeDiffusion = new DecisionTreeNode("Z_LSE_DR");
-
         nodeSIE.addChild("Z_LSE_SIE", nodeZLSESIE);
         nodeSIIV.addChild("Z_LSE_SIIV", nodeZLSESIIV);
         nodeHDS.addChild("Z_LSE_HDS", nodeZLSEHDS);
         nodeDiffusionRestreinte.addChild("Z_LSE_DR", nodeDiffusion);
-
         DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM");
         DecisionTreeNode nodeNon2 = new DecisionTreeNode("Non2");
         DecisionTreeNode nodeOui1 = new DecisionTreeNode("Oui1");
-
         nodeDSI1.addChild("Non2", nodeNon2);
         nodeDSI1.addChild("Oui1", nodeOui1);
         DecisionTreeNode vlanNon2 = new DecisionTreeNode("VLAN : Non");
@@ -155,7 +140,6 @@ public class DecisionTree {
         DecisionTreeNode nodeZLTRMEDI = new DecisionTreeNode("Z_LTR_MEDI");
         DecisionTreeNode nodeZLTRADMI = new DecisionTreeNode("Z_LTR_ADMI");
         DecisionTreeNode nodeZLTRDSICategory = new DecisionTreeNode("Z_LTR_DSI");
-
         nodeNon3.addChild("Catégorie d'usage", nodeCategory);
         nodeCategory.addChild("Médical", nodeMedical);
         nodeCategory.addChild("Administratif", nodeAd);
@@ -163,19 +147,16 @@ public class DecisionTree {
         nodeMedical.addChild("Z_LTR_MEDI", nodeZLTRMEDI);
         nodeAd.addChild("Z_LTR_ADMI", nodeZLTRADMI);
         nodeDSICategory.addChild("Z_LTR_DSI", nodeZLTRDSICategory);
-
         // for node "Poste admin" and more
         DecisionTreeNode nodeAdmin = new DecisionTreeNode("Poste admin");
         nodeAdmin.addChild("Non3", nodeNon3);
         nodeDSI2.addChild("Oui2", nodeOui2);
         nodeOui2.addChild("Poste admin", nodeAdmin);
-
         // for node Maitrisée par la DSI APHM 2 - nodeNon4
         DecisionTreeNode nodeOui3 = new DecisionTreeNode("Oui3");
         DecisionTreeNode nodeNon4 = new DecisionTreeNode("Non4");
         nodeAdmin.addChild("Oui3", nodeOui3);
         nodeDSI2.addChild("Non4", nodeNon4);
-
         DecisionTreeNode nodeType = new DecisionTreeNode("Type d'actif Non Maitrisé");
         DecisionTreeNode nodeShadowIT = new DecisionTreeNode("Shadow IT");
         DecisionTreeNode nodeBYOD = new DecisionTreeNode("BYOD (MAC)");
@@ -183,7 +164,6 @@ public class DecisionTree {
         DecisionTreeNode nodeSha = new DecisionTreeNode("Z_LTR_NM_SHA");
         DecisionTreeNode nodeByod = new DecisionTreeNode("Z_LTR_NM_BYOD");
         DecisionTreeNode nodePres = new DecisionTreeNode("Z_LTR_NM_PRES");
-
         nodeNon4.addChild("Type d'actif Non Maitrisé", nodeType);
         nodeType.addChild("Shadow IT", nodeShadowIT);
         nodeType.addChild("BYOD (MAC)", nodeBYOD);
@@ -237,7 +217,6 @@ public class DecisionTree {
         for(String vlanId : vlanFormMap) {
             vlanForm.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
-
         /**
          * To select a vlan id for Z_LSE_RECETTE : RECETTE n
          */
@@ -275,44 +254,35 @@ public class DecisionTree {
             vlanHDS.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
         /**
-         * To select a vlan id for Z_LSE_DR : SI DR
+         * To select a vlan id for Z_LSE_DR : SI DR - modify if more vlan zones
          */
-        // have to modify SI DR, if more choices
         DecisionTreeNode nodeSiDr = new DecisionTreeNode("SI DR");
         nodeDiffusion.addChild("SI DR", nodeSiDr);
         Set<String> vlanSiDrMap = readVlan().keySet();
         for(String vlanId : vlanSiDrMap) {
             nodeSiDr.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
-
         /**
          * add nodes for vlan zones
          */
-        DecisionTreeNode vlanYSEFaible = new DecisionTreeNode("VLAN FAIBLE");
+        DecisionTreeNode vlanYSEFaible = new DecisionTreeNode("VLAN FAIBLE"); // criticté faible
         nodeFaible.addChild("VLAN FAIBLE", vlanYSEFaible);
-
-        DecisionTreeNode vlanYSEImpor = new DecisionTreeNode("VLAN IMPOR");
+        DecisionTreeNode vlanYSEImpor = new DecisionTreeNode("VLAN IMPOR"); // vlan impor
         nodeImportante.addChild("VLAN IMPOR", vlanYSEImpor);
-
-        DecisionTreeNode vlanYSECritique = new DecisionTreeNode("VLAN CRITIQUE");
+        DecisionTreeNode vlanYSECritique = new DecisionTreeNode("VLAN CRITIQUE"); // vlan critique
         nodeCritique.addChild("VLAN CRITIQUE", vlanYSECritique);
-
-        DecisionTreeNode vlanYSEVitale = new DecisionTreeNode("VLAN VITALE");
+        DecisionTreeNode vlanYSEVitale = new DecisionTreeNode("VLAN VITALE"); // vlan vitale
         nodeVitale.addChild("VLAN VITALE", vlanYSEVitale);
-
-        DecisionTreeNode vlanShadow = new DecisionTreeNode("VLAN SHA");
+        DecisionTreeNode vlanShadow = new DecisionTreeNode("VLAN SHA"); // vlan shadow it
         nodeShadowIT.addChild("VLAN SHA", vlanShadow);
-
-        DecisionTreeNode vlanByod = new DecisionTreeNode("VLAN BYOD");
+        DecisionTreeNode vlanByod = new DecisionTreeNode("VLAN BYOD"); // vlan byod
         nodeBYOD.addChild("VLAN BYOD", vlanByod);
-
-        DecisionTreeNode vlanPres = new DecisionTreeNode("VLAN PRES");
+        DecisionTreeNode vlanPres = new DecisionTreeNode("VLAN PRES"); // vlan pres
         nodePres.addChild("VLAN PRES", vlanPres);
-
         /**
          * TODO : fin à modifier
          */
-        nodeZLSEINT.addChild("VLAN", vlanInt);
+        nodeZLSEINT.addChild("VLAN", vlanInt); // vlans integration
         nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
         nodeCriticite.addChild("Faible", nodeFaible);
         nodeCriticite.addChild("Importante", nodeImportante);
@@ -332,7 +302,6 @@ public class DecisionTree {
      * @throws IOException
      */
     public static HashMap<String, Vlan> readVlan() throws IOException {
-
         HashMap<String, Vlan> vlanType = new HashMap<>();
         String cheminCourant = System.getProperty("user.dir");
         System.out.println("Chemin courant : " + cheminCourant);
@@ -362,7 +331,6 @@ public class DecisionTree {
         String dns1;
         String dns2;
         String ntp;
-
         public Vlan(String ipMachine,
                     String vlanId,
                     String ipReseau,
@@ -380,9 +348,7 @@ public class DecisionTree {
             this.dns2 = dns2;
             this.ntp = ntp;
         }
-
     }
-
     /**
      * Method for selecting a choice
      */

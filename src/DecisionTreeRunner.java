@@ -69,7 +69,7 @@ public class DecisionTreeRunner {
                     // Ajoutez chaque champ et sa valeur associée dans le tableau
                     // tableModel.addRow(new Object[]{"IP Machine", selectedVlan.ipMachine});
                     // tableModel.addRow(new Object[]{"IP Réseau", selectedVlan.ipReseau});
-                    // Ajout d'éventuels autres champs et valeurs associées ici
+                    // Ajout d'éventuels autres champs et valeurs associées
                 // }
             //}
 
