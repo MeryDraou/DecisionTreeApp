@@ -1,9 +1,3 @@
-/**
- *
- * DecisionTreeApp Project
- * Author : Meryem DRAOU
- *
- */
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -158,8 +152,6 @@ public class DecisionTreeRunner {
         // ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo.png"));
         // JLabel logoLabel = new JLabel(logoIcon);
 
-
-
         titleLabel.setText("ARBRE DE DÉCISION APHM"); // title label
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
@@ -212,7 +204,7 @@ class DecisionTreePanel extends JPanel {
     private void drawTree(DecisionTreeNode node, int x, int y, int xOffset, int level, Graphics g) {
         Color darkGreen = new Color(0, 100, 0);
         Color darkRed = new Color(139, 0, 0);
-
+        // to color the path chosen by the user
         if (node.getNameNode().equals("Application ou équipement")) {
             g.setColor(darkRed);
         } else if (tree.getPathNodes().stream().anyMatch(decision -> decision.equals(node.getNameNode()))) {
@@ -220,7 +212,6 @@ class DecisionTreePanel extends JPanel {
         } else {
             g.setColor(darkGreen);
         }
-
         int textX = x - TEXT_RECTANGLE_WIDTH / 2;
         int textY = y - TEXT_RECTANGLE_HEIGHT / 2;
 
