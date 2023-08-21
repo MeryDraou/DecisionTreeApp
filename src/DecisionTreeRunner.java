@@ -34,8 +34,7 @@ public class DecisionTreeRunner {
         DecisionTreeNode currentNode = tree.getRoot();
         List<String> questionList = new ArrayList<>();
 
-
-
+        // while loop for displaying "Arbre de décision APHM"
         while (!currentNode.isLeaf()) {
             String userInput = (String) JOptionPane.showInputDialog(
                     frame,
@@ -46,11 +45,12 @@ public class DecisionTreeRunner {
                     currentNode.getChildren().keySet().toArray(),
                     currentNode.getChildren().keySet().toArray()[0]
             );
-
+            /**
+             * Debut of modifications
+             */
             // debut of test
             // Mise à jour du tableau avec les données associées au VLAN choisi
             // updateTableData(userInput);
-
             // Rafraîchir l'interface graphique pour afficher les nouvelles données dans le tableau
             // refreshGUI();
 
@@ -69,7 +69,7 @@ public class DecisionTreeRunner {
                     // Ajoutez chaque champ et sa valeur associée dans le tableau
                     // tableModel.addRow(new Object[]{"IP Machine", selectedVlan.ipMachine});
                     // tableModel.addRow(new Object[]{"IP Réseau", selectedVlan.ipReseau});
-                    // ... Ajoutez d'autres champs et valeurs associées ici
+                    // Ajout d'éventuels autres champs et valeurs associées ici
                 // }
             //}
 
@@ -77,7 +77,9 @@ public class DecisionTreeRunner {
            // private void refreshGUI() {
                 //questionTable.repaint(); // Redessine le tableau avec les nouvelles données
             // }
-            // end of test
+            /**
+             * TODO : end of the modifications
+             */
 
             currentNode = currentNode.getChild(userInput);
 
@@ -140,18 +142,14 @@ public class DecisionTreeRunner {
         // Load the original logo image
         ImageIcon originalLogoIcon = new ImageIcon(getClass().getResource("/logo.png"));
         // Define the desired width and height for the scaled logo
-        int desiredWidth = 150; // Adjust this value to your preference
-        int desiredHeight = 80; // Adjust this value to your preference
+        int desiredWidth = 150;
+        int desiredHeight = 80;
         // Scale the original logo image to the desire size
         Image scaledImage = originalLogoIcon.getImage().getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
-        // Create a new ImageIcon with the scaled image
         ImageIcon scaledLogoIcon = new ImageIcon(scaledImage);
-        // Create a JLabel with the scaled logo ImageIcon
         JLabel logoLabel = new JLabel(scaledLogoIcon);
-
         // ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo.png"));
         // JLabel logoLabel = new JLabel(logoIcon);
-
         titleLabel.setText("ARBRE DE DÉCISION APHM"); // title label
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
@@ -178,7 +176,6 @@ class DecisionTreePanel extends JPanel {
     private static final int TEXT_RECTANGLE_WIDTH = 160;
     private static final int TEXT_RECTANGLE_HEIGHT = 60;
     private DecisionTree tree;
-
     public DecisionTreePanel(DecisionTree tree) {
         this.tree = tree;
     }
