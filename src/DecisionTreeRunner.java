@@ -82,7 +82,7 @@ public class DecisionTreeRunner {
              */
 
             currentNode = currentNode.getChild(userInput);
-
+            // table
             if (currentNode == null) {
                 JOptionPane.showMessageDialog(frame, "Choix invalide. Veuillez essayer à nouveau.");
                 currentNode = tree.getRoot();
@@ -93,6 +93,19 @@ public class DecisionTreeRunner {
             }
             questionList.add(currentNode.getInput());
         }
+        try {
+            DecisionTree.Vlan currentVlan = DecisionTree.readVlan().get(currentNode.getInput());
+            questionList.add(currentVlan.getIpMachine() + " ip machine");
+            questionList.add(currentVlan.getIpReseau() + " ip reseau");
+            questionList.add(currentVlan.getIpPasserelle() + " passerelle");
+            questionList.add(currentVlan.getIpMasque() + " masque");
+            questionList.add(currentVlan.getDns1() + " DNS1");
+            questionList.add(currentVlan.getDns2() + " DNS2");
+            questionList.add(currentVlan.getNtp() + " NTP");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         Object[][] rowData = new Object[questionList.size()][1];
         for (int i = 0; i < questionList.size(); i++) {

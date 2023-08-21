@@ -190,6 +190,8 @@ public class DecisionTree {
         for(String vlanId : vlanIntMap) {
             vlanInt.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
+
+
         /**
          * To select a vlan id for Z_LSE_DEV : INT n
          */
@@ -331,6 +333,39 @@ public class DecisionTree {
         String dns1;
         String dns2;
         String ntp;
+
+        public String getIpMachine() {
+            return ipMachine;
+        }
+
+        public String getVlanId() {
+            return vlanId;
+        }
+
+        public String getIpReseau() {
+            return ipReseau;
+        }
+
+        public String getIpPasserelle() {
+            return ipPasserelle;
+        }
+
+        public String getIpMasque() {
+            return ipMasque;
+        }
+
+        public String getDns1() {
+            return dns1;
+        }
+
+        public String getDns2() {
+            return dns2;
+        }
+
+        public String getNtp() {
+            return ntp;
+        }
+
         public Vlan(String ipMachine,
                     String vlanId,
                     String ipReseau,
