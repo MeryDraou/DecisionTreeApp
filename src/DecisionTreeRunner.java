@@ -12,9 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * DecisionTreeRunner Class
  */
@@ -55,6 +52,38 @@ public class DecisionTreeRunner {
                     currentNode.getChildren().keySet().toArray(),
                     currentNode.getChildren().keySet().toArray()[0]
             );
+
+            // debut of test
+            // Mise à jour du tableau avec les données associées au VLAN choisi
+            // updateTableData(userInput);
+
+            // Rafraîchir l'interface graphique pour afficher les nouvelles données dans le tableau
+            // refreshGUI();
+
+            // Méthode pour mettre à jour les données du tableau en fonction du choix de VLAN
+            // private void updateTableData(String vlanChoice) {
+                // Obtenez les données associées au VLAN choisi à partir de votre source de données
+                // HashMap<String, Vlan> vlanData = tree.readVlan();
+                // Vlan selectedVlan = vlanData.get(vlanChoice);
+
+                // Si le VLAN choisi est trouvé dans les données
+                // if (selectedVlan != null) {
+                    // Mettez à jour le modèle du tableau avec les champs et valeurs du VLAN choisi
+                    // DefaultTableModel tableModel = (DefaultTableModel) questionTable.getModel();
+                    // tableModel.setRowCount(0); // Efface les anciennes données
+
+                    // Ajoutez chaque champ et sa valeur associée dans le tableau
+                    // tableModel.addRow(new Object[]{"IP Machine", selectedVlan.ipMachine});
+                    // tableModel.addRow(new Object[]{"IP Réseau", selectedVlan.ipReseau});
+                    // ... Ajoutez d'autres champs et valeurs associées ici
+                // }
+            //}
+
+            // Méthode pour rafraîchir l'interface graphique et afficher les nouvelles données dans le tableau
+           // private void refreshGUI() {
+                //questionTable.repaint(); // Redessine le tableau avec les nouvelles données
+            // }
+            // end of test
 
             currentNode = currentNode.getChild(userInput);
 

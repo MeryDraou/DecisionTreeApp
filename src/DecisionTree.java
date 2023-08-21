@@ -1,7 +1,6 @@
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -149,6 +148,11 @@ public class DecisionTree {
         nodeDSI1.addChild("Non2", nodeNon2);
         nodeDSI1.addChild("Oui1", nodeOui1);
 
+        DecisionTreeNode vlanNon2 = new DecisionTreeNode("VLAN : Non");
+        nodeNon2.addChild("VLAN : Non", vlanNon2);
+
+
+
         DecisionTreeNode nodeOui2 = new DecisionTreeNode("Oui2");
         DecisionTreeNode nodeNon3 = new DecisionTreeNode("Non3");
         DecisionTreeNode nodeCategory = new DecisionTreeNode("Catégorie d'usage");
@@ -206,17 +210,123 @@ public class DecisionTree {
         DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
         DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
         DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
-        // vlan int
-        DecisionTreeNode vlanInt = new DecisionTreeNode("VLAN");
+        /**
+         * TODO : précédemment ajouté
+         * To select a vlan id for Z_LSE_INT : INT n
+         */
+        DecisionTreeNode vlanInt = new DecisionTreeNode("VLAN"); // choose a VLAN
         Set<String> vlanIntMap = readVlan().keySet();
         for(String vlanId : vlanIntMap) {
             vlanInt.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
+        /**
+         * TODO : à modifier :
+         */
+        /**
+         * To select a vlan id for Z_LSE_DEV : INT n
+         */
+        DecisionTreeNode vlanDev = new DecisionTreeNode("VLAN DEV");
+        nodeZLSEDEV.addChild("VLAN DEV", vlanDev); // choose a VLAN
+        Set<String> vlanDevMap = readVlan().keySet();
+        for(String vlanId : vlanDevMap) {
+            vlanDev.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+
+        /**
+         * To select a vlan id for Z_LSE_TEST : TEST n
+         */
+        DecisionTreeNode vlanTest = new DecisionTreeNode("VLAN TEST");
+        nodeZLSETEST.addChild("VLAN TEST", vlanTest);// choose a VLAN
+        Set<String> vlanTestMap = readVlan().keySet();
+        for(String vlanId : vlanTestMap) {
+            vlanTest.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+
+        /**
+         * To select a vlan id for Z_LSE_FORM : FORM n
+         */
+        DecisionTreeNode vlanForm = new DecisionTreeNode("VLAN FORM");
+        nodeZLSEFORM.addChild("VLAN FORM", vlanForm);// choose a VLAN
+        Set<String> vlanFormMap = readVlan().keySet();
+        for(String vlanId : vlanFormMap) {
+            vlanForm.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+
+        /**
+         * To select a vlan id for Z_LSE_RECETTE : RECETTE n
+         */
+        DecisionTreeNode vlanRecette = new DecisionTreeNode("VLAN RECETTE");
+        nodeZLSERECETTE.addChild("VLAN RECETTE", vlanRecette); // choose a VLAN
+        Set<String> vlanRecetteMap = readVlan().keySet();
+        for(String vlanId : vlanRecetteMap) {
+            vlanRecette.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+        /**
+         * To select a vlan id for Z_LSE_SIE : SIE n
+         */
+        DecisionTreeNode vlanSIE = new DecisionTreeNode("VLAN SIE");
+        nodeZLSESIE.addChild("VLAN SIE", vlanSIE); // choose a VLAN
+        Set<String> vlanSIEMap = readVlan().keySet();
+        for(String vlanId : vlanSIEMap) {
+            vlanSIE.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+
+        /**
+         * To select a vlan id for Z_LSE_SIIV : SIIV
+         */
+        DecisionTreeNode vlanSIIV = new DecisionTreeNode("VLAN SIIV");
+        nodeZLSESIIV.addChild("VLAN SIVV", vlanSIIV); // choose a VLAN
+        Set<String> vlanSIVVMap = readVlan().keySet();
+        for(String vlanId : vlanSIEMap) {
+            vlanSIE.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+
+        /**
+         * To select a vlan id for Z_LSE_HDS : HDS n
+         */
+        DecisionTreeNode vlanHDS = new DecisionTreeNode("VLAN HDS");
+        nodeZLSEHDS.addChild("VLAN HDS", vlanHDS); // choose a VLAN
+        Set<String> vlanHDSMap = readVlan().keySet();
+        for(String vlanId : vlanHDSMap) {
+            vlanHDS.addChild(vlanId, new DecisionTreeNode(vlanId));
+        }
+        /**
+         * To select a vlan id for Z_LSE_DR : SI DR
+         */
+        DecisionTreeNode noseSiDr = new DecisionTreeNode("SI DR");
+        nodeDiffusion.addChild("SI DR", noseSiDr);
+
+        /**
+         * add nodes for vlan zones
+         */
+        DecisionTreeNode vlanYSEFaible = new DecisionTreeNode("VLAN FAIBLE");
+        nodeFaible.addChild("VLAN FAIBLE", vlanYSEFaible);
+
+        DecisionTreeNode vlanYSEImpor = new DecisionTreeNode("VLAN IMPOR");
+        nodeImportante.addChild("VLAN IMPOR", vlanYSEImpor);
+
+        DecisionTreeNode vlanYSECritique = new DecisionTreeNode("VLAN CRITIQUE");
+        nodeCritique.addChild("VLAN CRITIQUE", vlanYSECritique);
+
+        DecisionTreeNode vlanYSEVitale = new DecisionTreeNode("VLAN VITALE");
+        nodeVitale.addChild("VLAN VITALE", vlanYSEVitale);
+
+        DecisionTreeNode vlanShadow = new DecisionTreeNode("VLAN SHA");
+        nodeShadowIT.addChild("VLAN SHA", vlanShadow);
+
+        DecisionTreeNode vlanByod = new DecisionTreeNode("VLAN BYOD");
+        nodeBYOD.addChild("VLAN BYOD", vlanByod);
+
+        DecisionTreeNode vlanPres = new DecisionTreeNode("VLAN PRES");
+        nodePres.addChild("VLAN PRES", vlanPres);
+
+
+
+        /**
+         * TODO : fin à modifier
+         */
+
         nodeZLSEINT.addChild("VLAN", vlanInt);
-
-
-
-        // add final node
         nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
         nodeCriticite.addChild("Faible", nodeFaible);
         nodeCriticite.addChild("Importante", nodeImportante);
@@ -230,14 +340,15 @@ public class DecisionTree {
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
         nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
 
-        /**
-         * TODO : add here the vlan with zones and the zones numbers
-         */
 
     }
 
+    /**
+     * Method for selecting/reading the vlan number from the test file vlan_data.csv
+     * @return
+     * @throws IOException
+     */
     public static HashMap<String, Vlan> readVlan() throws IOException {
-
         HashMap<String, Vlan> vlanType = new HashMap<>();
         String cheminCourant = System.getProperty("user.dir");
         System.out.println("Chemin courant : " + cheminCourant);
@@ -259,7 +370,6 @@ public class DecisionTree {
 
     }
     static class Vlan {
-
         String ipMachine;
         String vlanId;
         String ipReseau;
@@ -318,7 +428,5 @@ public class DecisionTree {
     public DecisionTreeNode getRoot() {
         return this.root;
     }
-
-
 
 }
