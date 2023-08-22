@@ -74,13 +74,11 @@ public class DecisionTree {
         // node after Environnement2
         DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE");
         DecisionTreeNode nodeZLTDEV = new DecisionTreeNode("Z_LTR_DEV");
-        // DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE");
         DecisionTreeNode nodeZLTRRECETTE = new DecisionTreeNode("Z_LTR_RECETTE");
         DecisionTreeNode nodeZLTRFORM = new DecisionTreeNode("Z_LTR_FORM");
         DecisionTreeNode nodeZLTRTEST = new DecisionTreeNode("Z_LTR_TEST");
         nodeIntegration2.addChild("Z_LTR_RECE", nodeZLTRREC);
         nodeDeveloppement2.addChild("Z_LTR_DEV", nodeZLTDEV);
-        // nodeProduction2.addChild("Maitrisée par la DSI APHM", nodeDSI2);
         nodeRecette2.addChild("Z_LTR_RECETTE", nodeZLTRRECETTE);
         nodeFormation2.addChild("Z_LTR_FORM", nodeZLTRFORM);
         nodeTest2.addChild("Z_LTR_TEST", nodeZLTRTEST);
@@ -302,7 +300,6 @@ public class DecisionTree {
         Reader in = new FileReader("data\\vlan_data.csv"); // csv file - modify if necessary
         CSVParser csvParser = new CSVParser(in, CSVFormat.DEFAULT.withHeader());
         Iterable<CSVRecord> records = csvParser.getRecords();
-        // for loop for getting the
         for (CSVRecord record : records) {
             vlanType.put(record.get("vlan id"),
                     new Vlan(record.get("\uFEFFip machine"),
