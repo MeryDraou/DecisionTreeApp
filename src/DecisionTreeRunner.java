@@ -95,13 +95,13 @@ public class DecisionTreeRunner {
         }
         try {
             DecisionTree.Vlan currentVlan = DecisionTree.readVlan().get(currentNode.getInput());
-            questionList.add(currentVlan.getIpMachine() + " ip machine");
-            questionList.add(currentVlan.getIpReseau() + " ip reseau");
-            questionList.add(currentVlan.getIpPasserelle() + " passerelle");
-            questionList.add(currentVlan.getIpMasque() + " masque");
-            questionList.add(currentVlan.getDns1() + " DNS1");
-            questionList.add(currentVlan.getDns2() + " DNS2");
-            questionList.add(currentVlan.getNtp() + " NTP");
+            questionList.add("IP MACHINE : " + currentVlan.getIpMachine());
+            questionList.add("IP RÉSEAU : " + currentVlan.getIpReseau());
+            questionList.add("PASSERELLE : " + currentVlan.getIpPasserelle());
+            questionList.add("MASQUE : " + currentVlan.getIpMasque());
+            questionList.add("DNS1 : " + currentVlan.getDns1());
+            questionList.add("DNS2 : " + currentVlan.getDns2());
+            questionList.add("NTP : " + currentVlan.getNtp());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
