@@ -64,7 +64,7 @@ public class DecisionTree {
         DecisionTreeNode nodeRecette2 = new DecisionTreeNode("Recette2");
         DecisionTreeNode nodeFormation2 = new DecisionTreeNode("Formation2");
         DecisionTreeNode nodeTest2 = new DecisionTreeNode("Test2");
-        // children for Environnement2
+        // for Environnement2
         nodeEnvironnement2.addChild("Integration2", nodeIntegration2);
         nodeEnvironnement2.addChild("Developpement2", nodeDeveloppement2);
         nodeEnvironnement2.addChild("Production2", nodeProduction2);
@@ -171,7 +171,7 @@ public class DecisionTree {
         nodeShadowIT.addChild("Z_LTR_NM_SHA", nodeSha);
         nodeShadowIT.addChild("Z_LTR_NM_BYOD", nodeByod);
         nodeShadowIT.addChild("Z_LTR_NM_PRES", nodePres);
-        // Nodes after node "Oui1"
+        // nodes after node "Oui1"
         DecisionTreeNode nodeCriticite = new DecisionTreeNode("Criticité (FASSI)");
         DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
         DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante");
@@ -190,8 +190,6 @@ public class DecisionTree {
         for(String vlanId : vlanIntMap) {
             vlanInt.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
-
-
         /**
          * To select a vlan id for Z_LSE_DEV : INT n
          */
@@ -264,9 +262,6 @@ public class DecisionTree {
         for(String vlanId : vlanSiDrMap) {
             nodeSiDr.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
-        /**
-         * add nodes for vlan zones
-         */
         DecisionTreeNode vlanYSEFaible = new DecisionTreeNode("VLAN FAIBLE"); // criticté faible
         nodeFaible.addChild("VLAN FAIBLE", vlanYSEFaible);
         DecisionTreeNode vlanYSEImpor = new DecisionTreeNode("VLAN IMPOR"); // vlan impor
@@ -281,9 +276,6 @@ public class DecisionTree {
         nodeBYOD.addChild("VLAN BYOD", vlanByod);
         DecisionTreeNode vlanPres = new DecisionTreeNode("VLAN PRES"); // vlan pres
         nodePres.addChild("VLAN PRES", vlanPres);
-        /**
-         * TODO : fin à modifier
-         */
         nodeZLSEINT.addChild("VLAN", vlanInt); // vlans integration
         nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
         nodeCriticite.addChild("Faible", nodeFaible);
@@ -405,7 +397,6 @@ public class DecisionTree {
         }
         System.out.println("Noeud final atteint : " + currentNode.getInput()); // final node
     }
-
     /**
      * Method to get the root
      * @return
