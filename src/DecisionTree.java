@@ -24,7 +24,6 @@ public class DecisionTree {
      * Constructor
      */
     public DecisionTree() throws IOException {
-
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
         DecisionTreeNode nodeLocation = new DecisionTreeNode("Localisation géographique");
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
@@ -38,26 +37,26 @@ public class DecisionTree {
         DecisionTreeNode nodeEnvironnement1 = new DecisionTreeNode("Environnement1");
         DecisionTreeNode nodeEnvironnement2 = new DecisionTreeNode("Environnement2");
         root = nodeApplicationEquipment;
-        root.addChild("Serveur", nodeServer);
-        root.addChild("Terminal", nodeTerminal);
-        root.addChild("Imprimante", nodePrinter);
-        root.addChild("Scanneur", nodeScanner);
-        nodeServer.addChild("Exposition", nodeExposition);
-        nodeTerminal.addChild("Réseau", nodeReseau);
-        nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim);
-        nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic);
-        DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne ou autre");
-        nodeExposition.addChild("E : Interne ou autre", nodeE);
-        DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE");
-        nodeReseau.addChild("R : WIFI ou FILAIRE", nodeR);
-        nodeE.addChild("Environnement1", nodeEnvironnement1);
-        nodeR.addChild("Environnement2", nodeEnvironnement2);
-        DecisionTreeNode nodeIntegration1 = new DecisionTreeNode("Integration1");
-        DecisionTreeNode nodeDeveloppement1 = new DecisionTreeNode("Developpement1");
-        DecisionTreeNode nodeProduction1 = new DecisionTreeNode("Production1");
-        DecisionTreeNode nodeRecette1 = new DecisionTreeNode("Recette1");
-        DecisionTreeNode nodeFormation1 = new DecisionTreeNode("Formation1");
-        DecisionTreeNode nodeTest1 = new DecisionTreeNode("Test1");
+        root.addChild("Serveur", nodeServer); // node Serveur
+        root.addChild("Terminal", nodeTerminal); // node Terminal
+        root.addChild("Imprimante", nodePrinter); // node Imprimante
+        root.addChild("Scanneur", nodeScanner); // node Scanneur
+        nodeServer.addChild("Exposition", nodeExposition); // node Exposition
+        nodeTerminal.addChild("Réseau", nodeReseau); // node Réseau
+        nodePrinter.addChild("Z_I_IMPRIM", nodeZIImprim); // node Z_I_IMPRIM
+        nodeScanner.addChild("Z_M_SCAN_MEDIC", nodeZMScanMedic); // node Z_M_SCAN_MEDIC
+        DecisionTreeNode nodeE = new DecisionTreeNode("E : Interne ou autre"); // node E : Interne ou autre
+        nodeExposition.addChild("E : Interne ou autre", nodeE); // node E : Interne ou autre
+        DecisionTreeNode nodeR = new DecisionTreeNode("R : WIFI ou FILAIRE"); // node R : WIFI ou FILAIRE
+        nodeReseau.addChild("R : WIFI ou FILAIRE", nodeR); // node R : WIFI ou FILAIRE
+        nodeE.addChild("Environnement1", nodeEnvironnement1); // node Envrionnement
+        nodeR.addChild("Environnement2", nodeEnvironnement2); // node Envrionnement
+        DecisionTreeNode nodeIntegration1 = new DecisionTreeNode("Integration1"); // node Intégration
+        DecisionTreeNode nodeDeveloppement1 = new DecisionTreeNode("Developpement1"); // node Développement
+        DecisionTreeNode nodeProduction1 = new DecisionTreeNode("Production1"); // node Production
+        DecisionTreeNode nodeRecette1 = new DecisionTreeNode("Recette1"); // node Recette
+        DecisionTreeNode nodeFormation1 = new DecisionTreeNode("Formation1"); // node Formation
+        DecisionTreeNode nodeTest1 = new DecisionTreeNode("Test1"); // Test
         DecisionTreeNode nodeIntegration2 = new DecisionTreeNode("Integration2");
         DecisionTreeNode nodeDeveloppement2 = new DecisionTreeNode("Developpement2");
         DecisionTreeNode nodeProduction2 = new DecisionTreeNode("Production2");
@@ -72,26 +71,26 @@ public class DecisionTree {
         nodeEnvironnement2.addChild("Formation2", nodeFormation2);
         nodeEnvironnement2.addChild("Test2", nodeTest2);
         // node after Environnement2
-        DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE");
-        DecisionTreeNode nodeZLTDEV = new DecisionTreeNode("Z_LTR_DEV");
-        DecisionTreeNode nodeZLTRRECETTE = new DecisionTreeNode("Z_LTR_RECETTE");
-        DecisionTreeNode nodeZLTRFORM = new DecisionTreeNode("Z_LTR_FORM");
-        DecisionTreeNode nodeZLTRTEST = new DecisionTreeNode("Z_LTR_TEST");
-        nodeIntegration2.addChild("Z_LTR_RECE", nodeZLTRREC);
-        nodeDeveloppement2.addChild("Z_LTR_DEV", nodeZLTDEV);
-        nodeRecette2.addChild("Z_LTR_RECETTE", nodeZLTRRECETTE);
-        nodeFormation2.addChild("Z_LTR_FORM", nodeZLTRFORM);
-        nodeTest2.addChild("Z_LTR_TEST", nodeZLTRTEST);
-        nodeEnvironnement1.addChild("Integration1", nodeIntegration1);
-        nodeEnvironnement1.addChild("Developpement1", nodeDeveloppement1);
-        nodeEnvironnement1.addChild("Production1", nodeProduction1);
-        nodeEnvironnement1.addChild("Recette1", nodeRecette1);
-        nodeEnvironnement1.addChild("Formation1", nodeFormation1);
-        nodeEnvironnement1.addChild("Test1", nodeTest1);
-        DecisionTreeNode nodeZLSEINT = new DecisionTreeNode("Z_LSE_INT");
-        nodeIntegration1.addChild("Z_LSE_INT", nodeZLSEINT);
-        DecisionTreeNode nodeZLSEDEV = new DecisionTreeNode("Z_LSE_DEV");
-        nodeDeveloppement1.addChild("Z_LSE_DEV", nodeZLSEDEV);
+        DecisionTreeNode nodeZLTRREC = new DecisionTreeNode("Z_LTR_RECE"); // node Z_LTR_RECE
+        DecisionTreeNode nodeZLTDEV = new DecisionTreeNode("Z_LTR_DEV"); // node Z_LTR_DEV
+        DecisionTreeNode nodeZLTRRECETTE = new DecisionTreeNode("Z_LTR_RECETTE"); // node Z_LTR_RECETTE
+        DecisionTreeNode nodeZLTRFORM = new DecisionTreeNode("Z_LTR_FORM"); // node Z_LTR_FORM
+        DecisionTreeNode nodeZLTRTEST = new DecisionTreeNode("Z_LTR_TEST"); // node Z_LTR_TEST
+        nodeIntegration2.addChild("Z_LTR_RECE", nodeZLTRREC); // node Z_LTR_RECE
+        nodeDeveloppement2.addChild("Z_LTR_DEV", nodeZLTDEV); // node Z_LTR_DEV
+        nodeRecette2.addChild("Z_LTR_RECETTE", nodeZLTRRECETTE); // node Z_LTR_RECETTE
+        nodeFormation2.addChild("Z_LTR_FORM", nodeZLTRFORM); // node Z_LTR_FORM
+        nodeTest2.addChild("Z_LTR_TEST", nodeZLTRTEST); // node Z_LTR_TEST
+        nodeEnvironnement1.addChild("Integration1", nodeIntegration1); // node Intégration
+        nodeEnvironnement1.addChild("Developpement1", nodeDeveloppement1); // node Développement
+        nodeEnvironnement1.addChild("Production1", nodeProduction1); // node Production
+        nodeEnvironnement1.addChild("Recette1", nodeRecette1); // node Recette
+        nodeEnvironnement1.addChild("Formation1", nodeFormation1); // node Formation
+        nodeEnvironnement1.addChild("Test1", nodeTest1); // node Test
+        DecisionTreeNode nodeZLSEINT = new DecisionTreeNode("Z_LSE_INT"); // node Z_LSE_INT
+        nodeIntegration1.addChild("Z_LSE_INT", nodeZLSEINT); // node Z_LSE_INT
+        DecisionTreeNode nodeZLSEDEV = new DecisionTreeNode("Z_LSE_DEV"); // node Z_LSE_DEV
+        nodeDeveloppement1.addChild("Z_LSE_DEV", nodeZLSEDEV); // node Z_LSE_DEV
         DecisionTreeNode nodeExigence = new DecisionTreeNode("Exigence réglementaire");
         nodeProduction1.addChild("Exigence réglementaire", nodeExigence);
         DecisionTreeNode nodeZLSERECETTE = new DecisionTreeNode("Z_LSE_RECETTE");
@@ -110,80 +109,78 @@ public class DecisionTree {
         nodeExigence.addChild("Non1", nodeNon1);
         nodeNon1.addChild("Maitrisée par la DSI1 APHM", nodeDSI1);
         nodeExigence.addChild("SIE", nodeSIE);
-        nodeExigence.addChild("SIIV", nodeSIIV);
-        nodeExigence.addChild("HDS", nodeHDS);
+        nodeExigence.addChild("SIIV", nodeSIIV); // node SIIV
+        nodeExigence.addChild("HDS", nodeHDS); // node HDS
         nodeExigence.addChild("Diffusion Restreinte", nodeDiffusionRestreinte);
-        DecisionTreeNode nodeZLSESIE = new DecisionTreeNode("Z_LSE_SIE");
-        DecisionTreeNode nodeZLSESIIV = new DecisionTreeNode("Z_LSE_SIIV");
-        DecisionTreeNode nodeZLSEHDS = new DecisionTreeNode("Z_LSE_HDS");
-        DecisionTreeNode nodeDiffusion = new DecisionTreeNode("Z_LSE_DR");
-        nodeSIE.addChild("Z_LSE_SIE", nodeZLSESIE);
-        nodeSIIV.addChild("Z_LSE_SIIV", nodeZLSESIIV);
-        nodeHDS.addChild("Z_LSE_HDS", nodeZLSEHDS);
+        DecisionTreeNode nodeZLSESIE = new DecisionTreeNode("Z_LSE_SIE"); // Z_LSE_SIE
+        DecisionTreeNode nodeZLSESIIV = new DecisionTreeNode("Z_LSE_SIIV"); // Z_LSE_SIIV
+        DecisionTreeNode nodeZLSEHDS = new DecisionTreeNode("Z_LSE_HDS"); // Z_LSE_HDS
+        DecisionTreeNode nodeDiffusion = new DecisionTreeNode("Z_LSE_DR"); // Z_LSE_DR
+        nodeSIE.addChild("Z_LSE_SIE", nodeZLSESIE); // Z_LSE_SIE
+        nodeSIIV.addChild("Z_LSE_SIIV", nodeZLSESIIV); // Z_LSE_SIIV
+        nodeHDS.addChild("Z_LSE_HDS", nodeZLSEHDS); // Z_LSE_HDS
         nodeDiffusionRestreinte.addChild("Z_LSE_DR", nodeDiffusion);
-        DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM");
-        DecisionTreeNode nodeNon2 = new DecisionTreeNode("Non2");
-        DecisionTreeNode nodeOui1 = new DecisionTreeNode("Oui1");
-        nodeDSI1.addChild("Non2", nodeNon2);
-        nodeDSI1.addChild("Oui1", nodeOui1);
+        DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM"); // Maitrisée par la DSI APHM
+        DecisionTreeNode nodeNon2 = new DecisionTreeNode("Non2"); // Non
+        DecisionTreeNode nodeOui1 = new DecisionTreeNode("Oui1"); // Oui
+        nodeDSI1.addChild("Non2", nodeNon2); // Non
+        nodeDSI1.addChild("Oui1", nodeOui1); // Oui
         DecisionTreeNode vlanNon2 = new DecisionTreeNode("VLAN : Non");
         nodeNon2.addChild("VLAN : Non", vlanNon2);
-        DecisionTreeNode nodeOui2 = new DecisionTreeNode("Oui2");
-        DecisionTreeNode nodeNon3 = new DecisionTreeNode("Non3");
-        DecisionTreeNode nodeCategory = new DecisionTreeNode("Catégorie d'usage");
-        DecisionTreeNode nodeZLTRDSI = new DecisionTreeNode("Z_LTR_DSI");
-        DecisionTreeNode nodeMedical = new DecisionTreeNode("Médical");
-        DecisionTreeNode nodeAd = new DecisionTreeNode("Administratif");
-        DecisionTreeNode nodeDSICategory = new DecisionTreeNode("DSI");
-        DecisionTreeNode nodeZLTRMEDI = new DecisionTreeNode("Z_LTR_MEDI");
-        DecisionTreeNode nodeZLTRADMI = new DecisionTreeNode("Z_LTR_ADMI");
-        DecisionTreeNode nodeZLTRDSICategory = new DecisionTreeNode("Z_LTR_DSI");
-        nodeNon3.addChild("Catégorie d'usage", nodeCategory);
+        DecisionTreeNode nodeOui2 = new DecisionTreeNode("Oui2"); // node Oui
+        DecisionTreeNode nodeNon3 = new DecisionTreeNode("Non3"); // node Non
+        DecisionTreeNode nodeCategory = new DecisionTreeNode("Catégorie d'usage"); // node Catégorie d'usage
+        DecisionTreeNode nodeZLTRDSI = new DecisionTreeNode("Z_LTR_DSI"); // node Z_LTR_DSI
+        DecisionTreeNode nodeMedical = new DecisionTreeNode("Médical"); // node Médical
+        DecisionTreeNode nodeAd = new DecisionTreeNode("Administratif"); // node Administratif
+        DecisionTreeNode nodeDSICategory = new DecisionTreeNode("DSI"); // node DSI
+        DecisionTreeNode nodeZLTRMEDI = new DecisionTreeNode("Z_LTR_MEDI"); // node Z_LTR_MEDI
+        DecisionTreeNode nodeZLTRADMI = new DecisionTreeNode("Z_LTR_ADMI"); // node Z_LTR_ADMI
+        DecisionTreeNode nodeZLTRDSICategory = new DecisionTreeNode("Z_LTR_DSI"); // node Z_LTR_DSI
+        nodeNon3.addChild("Catégorie d'usage", nodeCategory); // node Catégorie d'usage
         nodeCategory.addChild("Médical", nodeMedical);
-        nodeCategory.addChild("Administratif", nodeAd);
-        nodeCategory.addChild("DSI", nodeDSICategory);
-        nodeMedical.addChild("Z_LTR_MEDI", nodeZLTRMEDI);
-        nodeAd.addChild("Z_LTR_ADMI", nodeZLTRADMI);
-        nodeDSICategory.addChild("Z_LTR_DSI", nodeZLTRDSICategory);
+        nodeCategory.addChild("Administratif", nodeAd); // node Administratif
+        nodeCategory.addChild("DSI", nodeDSICategory); // node DSI
+        nodeMedical.addChild("Z_LTR_MEDI", nodeZLTRMEDI); // node Z_LTR_MEDI
+        nodeAd.addChild("Z_LTR_ADMI", nodeZLTRADMI); // node Z_LTR_ADMI
+        nodeDSICategory.addChild("Z_LTR_DSI", nodeZLTRDSICategory); // node Z_LTR_DSI
         // for node "Poste admin" and more
-        DecisionTreeNode nodeAdmin = new DecisionTreeNode("Poste admin");
-        nodeAdmin.addChild("Non3", nodeNon3);
-        nodeDSI2.addChild("Oui2", nodeOui2);
-        nodeOui2.addChild("Poste admin", nodeAdmin);
+        DecisionTreeNode nodeAdmin = new DecisionTreeNode("Poste admin"); // node Poste admin
+        nodeAdmin.addChild("Non3", nodeNon3); // node Non
+        nodeDSI2.addChild("Oui2", nodeOui2); // node Oui
+        nodeOui2.addChild("Poste admin", nodeAdmin); // node Poste admin
         // for node Maitrisée par la DSI APHM 2 - nodeNon4
-        DecisionTreeNode nodeOui3 = new DecisionTreeNode("Oui3");
-        DecisionTreeNode nodeNon4 = new DecisionTreeNode("Non4");
-        nodeAdmin.addChild("Oui3", nodeOui3);
-        nodeDSI2.addChild("Non4", nodeNon4);
-        DecisionTreeNode nodeType = new DecisionTreeNode("Type d'actif Non Maitrisé");
-        DecisionTreeNode nodeShadowIT = new DecisionTreeNode("Shadow IT");
-        DecisionTreeNode nodeBYOD = new DecisionTreeNode("BYOD (MAC)");
-        DecisionTreeNode nodeProvider = new DecisionTreeNode("Prestataire");
-        DecisionTreeNode nodeSha = new DecisionTreeNode("Z_LTR_NM_SHA");
-        DecisionTreeNode nodeByod = new DecisionTreeNode("Z_LTR_NM_BYOD");
-        DecisionTreeNode nodePres = new DecisionTreeNode("Z_LTR_NM_PRES");
-        nodeNon4.addChild("Type d'actif Non Maitrisé", nodeType);
-        nodeType.addChild("Shadow IT", nodeShadowIT);
-        nodeType.addChild("BYOD (MAC)", nodeBYOD);
-        nodeType.addChild("Prestataire", nodeProvider);
-        nodeShadowIT.addChild("Z_LTR_NM_SHA", nodeSha);
-        nodeShadowIT.addChild("Z_LTR_NM_BYOD", nodeByod);
-        nodeShadowIT.addChild("Z_LTR_NM_PRES", nodePres);
+        DecisionTreeNode nodeOui3 = new DecisionTreeNode("Oui3"); // node Oui
+        DecisionTreeNode nodeNon4 = new DecisionTreeNode("Non4"); // node Non
+        nodeAdmin.addChild("Oui3", nodeOui3); // node Oui
+        nodeDSI2.addChild("Non4", nodeNon4); // node Non
+        DecisionTreeNode nodeType = new DecisionTreeNode("Type d'actif Non Maitrisé"); // node Type d'actif Non Maitrisé
+        DecisionTreeNode nodeShadowIT = new DecisionTreeNode("Shadow IT"); // node Shadow IT
+        DecisionTreeNode nodeBYOD = new DecisionTreeNode("BYOD (MAC)"); // node BYOD (MAC)
+        DecisionTreeNode nodeProvider = new DecisionTreeNode("Prestataire"); // node Prestataire
+        DecisionTreeNode nodeSha = new DecisionTreeNode("Z_LTR_NM_SHA"); // node Z_LTR_NM_SHA
+        DecisionTreeNode nodeByod = new DecisionTreeNode("Z_LTR_NM_BYOD"); // node Z_LTR_NM_BYOD
+        DecisionTreeNode nodePres = new DecisionTreeNode("Z_LTR_NM_PRES"); // node Z_LTR_NM_PRES
+        nodeNon4.addChild("Type d'actif Non Maitrisé", nodeType); // node Type d'actif Non Maitrisé
+        nodeType.addChild("Shadow IT", nodeShadowIT); // node Shadow IT
+        nodeType.addChild("BYOD (MAC)", nodeBYOD); // node BYOD (MAC)
+        nodeType.addChild("Prestataire", nodeProvider); // node Prestataire
+        nodeShadowIT.addChild("Z_LTR_NM_SHA", nodeSha); // node Z_LTR_NM_SHA
+        nodeShadowIT.addChild("Z_LTR_NM_BYOD", nodeByod); // node Z_LTR_NM_BYOD
+        nodeShadowIT.addChild("Z_LTR_NM_PRES", nodePres); // node Z_LTR_NM_PRES
         // nodes after node "Oui1"
-        DecisionTreeNode nodeCriticite = new DecisionTreeNode("Criticité (FASSI)");
-        DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible");
-        DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante");
-        DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique");
-        DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale");
-        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE");
-        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR");
-        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE");
-        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE");
-        /**
-         * TODO : précédemment ajouté et à modifier
-         * To select a vlan id for Z_LSE_INT : INT n
-         */
-        DecisionTreeNode vlanInt = new DecisionTreeNode("VLAN"); // choose your VLAN
+        DecisionTreeNode nodeCriticite = new DecisionTreeNode("Criticité (FASSI)"); // node Criticité (FASSI)
+        DecisionTreeNode nodeFaible = new DecisionTreeNode("Faible"); // node Faible
+        DecisionTreeNode nodeImportante = new DecisionTreeNode("Importante"); // node Importante
+        DecisionTreeNode nodeCritique = new DecisionTreeNode("Critique"); // node Critique
+        DecisionTreeNode nodeVitale = new DecisionTreeNode("Vitale"); // node Vitale
+        DecisionTreeNode nodeYSEFaible = new DecisionTreeNode("Z_YSE_FAIBLE"); // node Z_YSE_FAIBLE
+        DecisionTreeNode nodeYSEImportante = new DecisionTreeNode("Z_YSE_IMPOR"); // node Z_YSE_IMPOR
+        DecisionTreeNode nodeYSECritique = new DecisionTreeNode("Z_YSE_CRITIQUE"); // node Z_YSE_CRITIQUE
+        DecisionTreeNode nodeYSEVitale = new DecisionTreeNode("YSE_LSE_VITALE"); // node YSE_LSE_VITALE
+
+        // for VLANs "Intégration"
+        DecisionTreeNode vlanInt = new DecisionTreeNode("VLAN"); // choose your Intégration vlan
         Set<String> vlanIntMap = readVlan().keySet();
         for(String vlanId : vlanIntMap) {
             vlanInt.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -192,7 +189,7 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_DEV : INT n
          */
         DecisionTreeNode vlanDevelopment = new DecisionTreeNode("VLAN DEV");
-        nodeZLSEDEV.addChild("VLAN DEV", vlanDevelopment); // choose your VLAN
+        nodeZLSEDEV.addChild("VLAN DEV", vlanDevelopment); // choose your Développement vlan
         Set<String> vlanDevMap = readVlan().keySet();
         for(String vlanId : vlanDevMap) {
             vlanDevelopment.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -201,7 +198,7 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_TEST : TEST n
          */
         DecisionTreeNode vlanTest = new DecisionTreeNode("VLAN TEST");
-        nodeZLSETEST.addChild("VLAN TEST", vlanTest); // choose your VLAN
+        nodeZLSETEST.addChild("VLAN TEST", vlanTest); // choose your Test vlan
         Set<String> vlanTestMap = readVlan().keySet();
         for(String vlanId : vlanTestMap) {
             vlanTest.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -210,7 +207,7 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_FORM : FORM n
          */
         DecisionTreeNode vlanForm = new DecisionTreeNode("VLAN FORM");
-        nodeZLSEFORM.addChild("VLAN FORM", vlanForm); // choose your VLAN
+        nodeZLSEFORM.addChild("VLAN FORM", vlanForm); // choose your Formation vlan
         Set<String> vlanFormMap = readVlan().keySet();
         for(String vlanId : vlanFormMap) {
             vlanForm.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -219,7 +216,7 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_RECETTE : RECETTE n
          */
         DecisionTreeNode vlanRecette = new DecisionTreeNode("VLAN RECETTE");
-        nodeZLSERECETTE.addChild("VLAN RECETTE", vlanRecette); // choose your VLAN
+        nodeZLSERECETTE.addChild("VLAN RECETTE", vlanRecette); // choose your Recette vlan
         Set<String> vlanRecetteMap = readVlan().keySet();
         for(String vlanId : vlanRecetteMap) {
             vlanRecette.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -228,7 +225,7 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_SIE : SIE n
          */
         DecisionTreeNode vlanSIE = new DecisionTreeNode("VLAN SIE");
-        nodeZLSESIE.addChild("VLAN SIE", vlanSIE); // choose your VLAN
+        nodeZLSESIE.addChild("VLAN SIE", vlanSIE); // choose your SIE vlan
         Set<String> vlanSIEMap = readVlan().keySet();
         for(String vlanId : vlanSIEMap) {
             vlanSIE.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -237,7 +234,7 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_SIIV : SIIV
          */
         DecisionTreeNode vlanSIIV = new DecisionTreeNode("VLAN SIIV");
-        nodeZLSESIIV.addChild("VLAN SIVV", vlanSIIV); // choose your VLAN
+        nodeZLSESIIV.addChild("VLAN SIIV", vlanSIIV); // choose your SIIV vlan
         Set<String> vlanSIVVMap = readVlan().keySet();
         for(String vlanId : vlanSIEMap) {
             vlanSIE.addChild(vlanId, new DecisionTreeNode(vlanId));
@@ -246,47 +243,47 @@ public class DecisionTree {
          * To select a vlan id for Z_LSE_HDS : HDS n
          */
         DecisionTreeNode vlanHDS = new DecisionTreeNode("VLAN HDS");
-        nodeZLSEHDS.addChild("VLAN HDS", vlanHDS); // choose your vlan
+        nodeZLSEHDS.addChild("VLAN HDS", vlanHDS); // choose your HDS vlan
         Set<String> vlanHDSMap = readVlan().keySet();
         for(String vlanId : vlanHDSMap) {
             vlanHDS.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
         /**
-         * To select a vlan id for Z_LSE_DR : SI DR - modify if more vlan zones
+         * To select a vlan id for Z_LSE_DR : SI DR, if more vlan zones
          */
-        DecisionTreeNode nodeSiDr = new DecisionTreeNode("SI DR");
+        DecisionTreeNode nodeSiDr = new DecisionTreeNode("SI DR"); // choose your SI DR vlan
         nodeDiffusion.addChild("SI DR", nodeSiDr);
         Set<String> vlanSiDrMap = readVlan().keySet();
         for(String vlanId : vlanSiDrMap) {
             nodeSiDr.addChild(vlanId, new DecisionTreeNode(vlanId));
         }
-        DecisionTreeNode vlanYSEFaible = new DecisionTreeNode("VLAN FAIBLE"); // criticté faible
+        DecisionTreeNode vlanYSEFaible = new DecisionTreeNode("VLAN FAIBLE"); // faible
         nodeFaible.addChild("VLAN FAIBLE", vlanYSEFaible);
-        DecisionTreeNode vlanYSEImpor = new DecisionTreeNode("VLAN IMPOR"); // vlan impor
+        DecisionTreeNode vlanYSEImpor = new DecisionTreeNode("VLAN IMPOR"); // importante
         nodeImportante.addChild("VLAN IMPOR", vlanYSEImpor);
-        DecisionTreeNode vlanYSECritique = new DecisionTreeNode("VLAN CRITIQUE"); // vlan critique
+        DecisionTreeNode vlanYSECritique = new DecisionTreeNode("VLAN CRITIQUE"); // critique
         nodeCritique.addChild("VLAN CRITIQUE", vlanYSECritique);
-        DecisionTreeNode vlanYSEVitale = new DecisionTreeNode("VLAN VITALE"); // vlan vitale
+        DecisionTreeNode vlanYSEVitale = new DecisionTreeNode("VLAN VITALE"); // vitale
         nodeVitale.addChild("VLAN VITALE", vlanYSEVitale);
-        DecisionTreeNode vlanShadow = new DecisionTreeNode("VLAN SHA"); // vlan shadow it
+        DecisionTreeNode vlanShadow = new DecisionTreeNode("VLAN SHA"); // shadow it
         nodeShadowIT.addChild("VLAN SHA", vlanShadow);
-        DecisionTreeNode vlanByod = new DecisionTreeNode("VLAN BYOD"); // vlan byod
+        DecisionTreeNode vlanByod = new DecisionTreeNode("VLAN BYOD"); // byod
         nodeBYOD.addChild("VLAN BYOD", vlanByod);
-        DecisionTreeNode vlanPres = new DecisionTreeNode("VLAN PRES"); // vlan pres
+        DecisionTreeNode vlanPres = new DecisionTreeNode("VLAN PRES"); // pres
         nodePres.addChild("VLAN PRES", vlanPres);
-        nodeZLSEINT.addChild("VLAN", vlanInt); // vlans integration
+        nodeZLSEINT.addChild("VLAN", vlanInt); // intégration
         nodeOui1.addChild("Criticité (FASSI)", nodeCriticite);
-        nodeCriticite.addChild("Faible", nodeFaible);
-        nodeCriticite.addChild("Importante", nodeImportante);
-        nodeCriticite.addChild("Critique", nodeCritique);
-        nodeCriticite.addChild("Vitale", nodeVitale);
-        nodeFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible);
-        nodeCritique.addChild("Z_YSE_Critique", nodeYSECritique);
-        nodeImportante.addChild("Z_YSE_Importante", nodeYSEImportante);
-        nodeVitale.addChild("Z_YSE_Vitale", nodeYSEVitale);
+        nodeCriticite.addChild("Faible", nodeFaible); // faible
+        nodeCriticite.addChild("Importante", nodeImportante); // importante
+        nodeCriticite.addChild("Critique", nodeCritique); // critique
+        nodeCriticite.addChild("Vitale", nodeVitale); // vitale
+        nodeFaible.addChild("Z_YSE_FAIBLE", nodeYSEFaible); // faible
+        nodeCritique.addChild("Z_YSE_Critique", nodeYSECritique); // critique
+        nodeImportante.addChild("Z_YSE_Importante", nodeYSEImportante); // Z_YSE_Importante
+        nodeVitale.addChild("Z_YSE_Vitale", nodeYSEVitale); // Z_YSE_Vitale
         // for node Environnement2
-        nodeEnvironnement2.addChild("Production2", nodeProduction2);
-        nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2);
+        nodeEnvironnement2.addChild("Production2", nodeProduction2); // Production
+        nodeProduction2.addChild("Maitrisée par la DSI2 APHM", nodeDSI2); // Maitrisée par la DSI APHM
     }
     /**
      * Method for selecting/reading the vlan number from the test file vlan_data.csv
@@ -297,7 +294,7 @@ public class DecisionTree {
         HashMap<String, Vlan> vlanType = new HashMap<>();
         String cheminCourant = System.getProperty("user.dir");
         System.out.println("Chemin courant : " + cheminCourant);
-        Reader in = new FileReader("data\\vlan_data.csv"); // csv file - modify if necessary
+        Reader in = new FileReader("data\\vlan_data.csv"); // csv file (modify if necessary)
         CSVParser csvParser = new CSVParser(in, CSVFormat.DEFAULT.withHeader());
         Iterable<CSVRecord> records = csvParser.getRecords();
         for (CSVRecord record : records) {

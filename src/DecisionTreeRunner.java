@@ -35,7 +35,7 @@ public class DecisionTreeRunner {
             String userInput = (String) JOptionPane.showInputDialog(
                     frame,
                     currentNode.getInput(),
-                    "Arbre de décision APHM",
+                    "ARBRE DE DÉCISION APHM",
                     JOptionPane.QUESTION_MESSAGE,
                     null,
                     currentNode.getChildren().keySet().toArray(),
@@ -54,13 +54,13 @@ public class DecisionTreeRunner {
         }
         try {
             DecisionTree.Vlan currentVlan = DecisionTree.readVlan().get(currentNode.getInput());
-            questionList.add("IP MACHINE : " + currentVlan.getIpMachine());
-            questionList.add("IP RÉSEAU : " + currentVlan.getIpReseau());
-            questionList.add("PASSERELLE : " + currentVlan.getIpPasserelle());
-            questionList.add("MASQUE : " + currentVlan.getIpMasque());
-            questionList.add("DNS1 : " + currentVlan.getDns1());
-            questionList.add("DNS2 : " + currentVlan.getDns2());
-            questionList.add("NTP : " + currentVlan.getNtp());
+            questionList.add("IP Machine  ->  " + currentVlan.getIpMachine());
+            questionList.add("IP Réseau  ->  " + currentVlan.getIpReseau());
+            questionList.add("Passerelle  ->  " + currentVlan.getIpPasserelle());
+            questionList.add("Masque  ->  " + currentVlan.getIpMasque());
+            questionList.add("DNS1  ->  " + currentVlan.getDns1());
+            questionList.add("DNS2  ->  " + currentVlan.getDns2());
+            questionList.add("NTP  ->  " + currentVlan.getNtp());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -86,14 +86,14 @@ public class DecisionTreeRunner {
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        centerRenderer.setForeground(new Color(0, 0, 0)); // color black for the tables writing
+        centerRenderer.setForeground(new Color(0, 0, 0));
         questionTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
 
         JScrollPane scrollPane = new JScrollPane(questionTable);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
-        treePanel.setBackground(Color.LIGHT_GRAY); // color LIGHT_GRAY of the background of the decision tree
+        treePanel.setBackground(Color.LIGHT_GRAY);
 
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
         contentPanel.add(treePanel);
