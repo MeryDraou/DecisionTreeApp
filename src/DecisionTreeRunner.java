@@ -107,7 +107,7 @@ public class DecisionTreeRunner {
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
         // load the original logo image
-        ImageIcon originalLogoIcon = new ImageIcon(getClass().getResource("/logo.png"));
+        ImageIcon originalLogoIcon = new ImageIcon(getClass().getResource("/logo.png")); // logo image
         // define the desired width and height for the scaled logo
         int desiredWidth = 150;
         int desiredHeight = 80;
