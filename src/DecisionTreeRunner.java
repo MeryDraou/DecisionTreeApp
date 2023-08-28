@@ -54,7 +54,7 @@ public class DecisionTreeRunner {
         }
         try {
             DecisionTree.Vlan currentVlan = DecisionTree.readVlan().get(currentNode.getInput());
-            questionList.add("IP Machine  ->  " + currentVlan.getIpMachine());
+            questionList.add("IP Machine ->  " + currentVlan.getIpMachine());
             questionList.add("IP Réseau  ->  " + currentVlan.getIpReseau());
             questionList.add("Passerelle  ->  " + currentVlan.getIpPasserelle());
             questionList.add("Masque  ->  " + currentVlan.getIpMasque());
