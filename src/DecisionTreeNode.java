@@ -16,38 +16,50 @@ public class DecisionTreeNode {
         this.nameNode = message;
     }
 
-    public String getNameNode() { return this.nameNode; }
+    public String getNameNode() {
+        return this.nameNode;
+    }
 
     /**
      * Method to get the result of the input
      * @return input
      */
-    public String getInput() { return this.input; }
+    public String getInput() {
+        return this.input;
+    }
 
     /**
      * Method to get the child node
      * @param decision
      * @return
      */
-    public DecisionTreeNode getChild(String decision) { return this.children.get(decision); }
+    public DecisionTreeNode getChild(String decision) {
+        return this.children.get(decision);
+    }
 
     /**
      * Method to add a child node
      * @param decision
      * @param child
      */
-    public void addChild(String decision, DecisionTreeNode child) { this.children.put(decision, child); }
+    public void addChild(String decision, DecisionTreeNode child) {
+        this.children.put(decision, child);
+    }
 
     /**
      * Method to detect if it is the correct leaf
      * @return
      */
-    public boolean isLeaf() { return this.children.isEmpty(); }
+    public boolean isLeaf() {
+        return this.children.isEmpty();
+    }
 
     /**
      * Method to get the children
      * @return
      */
-    public HashMap<String, DecisionTreeNode> getChildren() { return this.children; }
+    public HashMap<String, DecisionTreeNode> getChildren() {
+        return this.children;
+    }
 
 }
