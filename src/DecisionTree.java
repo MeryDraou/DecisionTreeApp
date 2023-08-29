@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 /**
  * DecisionTree Class
+ * NB : The decision tree is considered to be read from left to right
  */
 public class DecisionTree {
     DecisionTreeNode root;
@@ -24,6 +25,7 @@ public class DecisionTree {
      * Constructor
      */
     public DecisionTree() throws IOException {
+        // differents nodes of the decision tree
         DecisionTreeNode nodeApplicationEquipment = new DecisionTreeNode("Application ou équipement");
         DecisionTreeNode nodeLocation = new DecisionTreeNode("Localisation géographique");
         DecisionTreeNode nodeServer = new DecisionTreeNode("Serveur");
@@ -56,7 +58,7 @@ public class DecisionTree {
         DecisionTreeNode nodeProduction1 = new DecisionTreeNode("Production1"); // node Production
         DecisionTreeNode nodeRecette1 = new DecisionTreeNode("Recette1"); // node Recette
         DecisionTreeNode nodeFormation1 = new DecisionTreeNode("Formation1"); // node Formation
-        DecisionTreeNode nodeTest1 = new DecisionTreeNode("Test1"); // Test
+        DecisionTreeNode nodeTest1 = new DecisionTreeNode("Test1"); // node Test at the left
         DecisionTreeNode nodeIntegration2 = new DecisionTreeNode("Integration2");
         DecisionTreeNode nodeDeveloppement2 = new DecisionTreeNode("Developpement2");
         DecisionTreeNode nodeProduction2 = new DecisionTreeNode("Production2");
@@ -86,7 +88,7 @@ public class DecisionTree {
         nodeEnvironnement1.addChild("Production1", nodeProduction1); // node Production
         nodeEnvironnement1.addChild("Recette1", nodeRecette1); // node Recette
         nodeEnvironnement1.addChild("Formation1", nodeFormation1); // node Formation
-        nodeEnvironnement1.addChild("Test1", nodeTest1); // node Test
+        nodeEnvironnement1.addChild("Test1", nodeTest1); // node Test at the left
         DecisionTreeNode nodeZLSEINT = new DecisionTreeNode("Z_LSE_INT"); // node Z_LSE_INT
         nodeIntegration1.addChild("Z_LSE_INT", nodeZLSEINT); // node Z_LSE_INT
         DecisionTreeNode nodeZLSEDEV = new DecisionTreeNode("Z_LSE_DEV"); // node Z_LSE_DEV
@@ -109,8 +111,8 @@ public class DecisionTree {
         nodeExigence.addChild("Non1", nodeNon1);
         nodeNon1.addChild("Maitrisée par la DSI1 APHM", nodeDSI1);
         nodeExigence.addChild("SIE", nodeSIE);
-        nodeExigence.addChild("SIIV", nodeSIIV); // node SIIV
-        nodeExigence.addChild("HDS", nodeHDS); // node HDS
+        nodeExigence.addChild("SIIV", nodeSIIV);
+        nodeExigence.addChild("HDS", nodeHDS);
         nodeExigence.addChild("Diffusion Restreinte", nodeDiffusionRestreinte);
         DecisionTreeNode nodeZLSESIE = new DecisionTreeNode("Z_LSE_SIE"); // Z_LSE_SIE
         DecisionTreeNode nodeZLSESIIV = new DecisionTreeNode("Z_LSE_SIIV"); // Z_LSE_SIIV
@@ -120,7 +122,7 @@ public class DecisionTree {
         nodeSIIV.addChild("Z_LSE_SIIV", nodeZLSESIIV); // Z_LSE_SIIV
         nodeHDS.addChild("Z_LSE_HDS", nodeZLSEHDS); // Z_LSE_HDS
         nodeDiffusionRestreinte.addChild("Z_LSE_DR", nodeDiffusion);
-        DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM"); // Maitrisée par la DSI APHM
+        DecisionTreeNode nodeDSI2 = new DecisionTreeNode("Maitrisée par la DSI2 APHM"); // node Maitrisée par la DSI APHM, the second one
         DecisionTreeNode nodeNon2 = new DecisionTreeNode("Non2"); // Non
         DecisionTreeNode nodeOui1 = new DecisionTreeNode("Oui1"); // Oui
         nodeDSI1.addChild("Non2", nodeNon2); // Non
