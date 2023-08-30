@@ -355,6 +355,17 @@ public class DecisionTree {
             return ntp;
         }
 
+        /**
+         * vlan parameters
+         * @param ipMachine
+         * @param vlanId
+         * @param ipReseau
+         * @param ipPasserelle
+         * @param ipMasque
+         * @param dns1
+         * @param dns2
+         * @param ntp
+         */
         public Vlan(String ipMachine,
                     String vlanId,
                     String ipReseau,

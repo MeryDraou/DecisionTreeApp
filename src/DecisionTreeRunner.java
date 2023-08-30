@@ -47,7 +47,7 @@ public class DecisionTreeRunner {
                 currentNode = tree.getRoot();
             }
             else {
-                System.out.println("Choix valide. Veuillez continuer.");
+                System.out.println("Choix valide. Continuer vos choix.");
                 tree.addPathNodes(userInput);
             }
             questionList.add(currentNode.getInput());
@@ -83,24 +83,19 @@ public class DecisionTreeRunner {
         questionTable.setForeground(new Color(255, 140, 0));
         questionTable.setRowHeight(40);
         questionTable.setFont(new Font("Arial", Font.PLAIN, 18));
-
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         centerRenderer.setForeground(new Color(0, 0, 0));
         questionTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-
         JScrollPane scrollPane = new JScrollPane(questionTable);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
         DecisionTreePanel treePanel = new DecisionTreePanel(tree);
         treePanel.setBackground(Color.LIGHT_GRAY);
-
         JPanel contentPanel = new JPanel(new GridLayout(1, 2));
         contentPanel.add(treePanel);
         contentPanel.add(scrollPane);
         mainPanel.add(contentPanel, BorderLayout.CENTER);
         frame.add(mainPanel);
-
         JLabel titleLabel = new JLabel("Arbre de décision APHM");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
@@ -119,12 +114,10 @@ public class DecisionTreeRunner {
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setForeground(new Color(255, 140, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
         JPanel topBarPanel = new JPanel(new BorderLayout());
         topBarPanel.setBackground(Color.BLACK);
         topBarPanel.add(logoLabel, BorderLayout.WEST);
         topBarPanel.add(titleLabel, BorderLayout.CENTER);
-
         frame.add(topBarPanel, BorderLayout.NORTH);
         frame.setVisible(true);
     }
@@ -155,7 +148,7 @@ class DecisionTreePanel extends JPanel {
     }
 
     /**
-     * Draw the decision tree
+     * Draw the decsion tree
      * @param node
      * @param x
      * @param y
@@ -176,16 +169,13 @@ class DecisionTreePanel extends JPanel {
         }
         int textX = x - TEXT_RECTANGLE_WIDTH / 2;
         int textY = y - TEXT_RECTANGLE_HEIGHT / 2;
-
         g.fillRect(textX, textY, TEXT_RECTANGLE_WIDTH, TEXT_RECTANGLE_HEIGHT);
         g.setColor(Color.WHITE);
         g.drawString(node.getInput(), textX + 10, textY + TEXT_RECTANGLE_HEIGHT / 2 + 5);
-
         if (!node.isLeaf()) {
             int childCount = node.getChildren().size();
             int startX = x - xOffset * (childCount - 1) / 2;
             int startY = y + NODE_SIZE / 2 + LEVEL_HEIGHT;
-
             for (DecisionTreeNode child : node.getChildren().values()) {
                 g.setColor(Color.BLACK);
                 g.drawLine(x, textY + TEXT_RECTANGLE_HEIGHT, startX, startY);
